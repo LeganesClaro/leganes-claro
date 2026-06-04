@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leganés Claro — Tu Ayuntamiento en Palabras Sencillas</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-icon">🏛️</span>
+      <div>
+        <div class="logo-title">Leganés Claro</div>
+        <div class="logo-sub">Lo que hace tu Ayuntamiento, sin letra pequeña</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="#plenos" class="nav-link">Plenos</a>
+      <a href="#presupuesto" class="nav-link">Presupuesto</a>
+      <a href="#contratos" class="nav-link">Contratos</a>
+      <a href="#acerca" class="nav-link">¿Qué es esto?</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-title">Tu Ayuntamiento,<br><span class="accent">explicado para todos</span></h1>
+    <p class="hero-desc">Resumimos las decisiones del Ayuntamiento de Leganés en lenguaje sencillo. Sin tecnicismos, sin papeleo. Información de <a href="https://www.leganes.org/web/transparencia" target="_blank" rel="noopener" class="source-link">leganes.org/transparencia</a>.</p>
+    <div class="hero-badges">
+      <span class="badge badge-green">✅ Datos oficiales</span>
+      <span class="badge badge-blue">📅 Actualizado junio 2026</span>
+      <span class="badge badge-gray">🔓 Acceso libre</span>
+    </div>
+  </div>
+</section>
+
+<!-- ÚLTIMAS NOVEDADES -->
+<section class="section" id="novedades">
+  <div class="container">
+    <h2 class="section-title">📢 Lo más reciente</h2>
+    <p class="section-sub">Las últimas decisiones del pleno municipal</p>
+    <div class="cards-grid" id="novedades-grid"></div>
+  </div>
+</section>
+
+<!-- PLENOS -->
+<section class="section section-alt" id="plenos">
+  <div class="container">
+    <h2 class="section-title">🗳️ Plenos municipales</h2>
+    <p class="section-sub">Cada mes, los concejales se reúnen para votar sobre temas importantes. Aquí te explicamos qué decidieron.</p>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-year="2026">2026</button>
+      <button class="filter-btn" data-year="2025">2025</button>
+    </div>
+
+    <div class="plenos-list" id="plenos-list"></div>
+  </div>
+</section>
+
+<!-- PRESUPUESTO -->
+<section class="section" id="presupuesto">
+  <div class="container">
+    <h2 class="section-title">💰 ¿En qué se gasta el dinero?</h2>
+    <p class="section-sub">El Ayuntamiento de Leganés gestiona el dinero de todos los vecinos. Aquí ves en qué se invierte. Presupuesto 2025: <strong>193 millones de euros</strong>.</p>
+
+    <div class="budget-layout">
+      <div class="chart-box">
+        <h3 class="chart-title">Distribución del gasto</h3>
+        <canvas id="gastoChart" height="300"></canvas>
+      </div>
+      <div class="budget-detail">
+        <h3 class="chart-title">Las grandes partidas</h3>
+        <div id="budget-items"></div>
+      </div>
+    </div>
+
+    <div class="budget-income-section">
+      <h3 class="chart-title" style="margin-bottom:1rem;">¿De dónde viene el dinero?</h3>
+      <div class="income-grid" id="income-grid"></div>
+    </div>
+
+    <div class="source-note">
+      <span>📄 Fuente:</span>
+      <a href="https://www.leganes.org/web/transparencia/presupuestos-anuales" target="_blank" rel="noopener">Presupuestos anuales — leganes.org</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTRATOS -->
+<section class="section section-alt" id="contratos">
+  <div class="container">
+    <h2 class="section-title">📋 Contratos y obras</h2>
+    <p class="section-sub">Cuando el Ayuntamiento necesita algo (obras, servicios, suministros) lo contrata a empresas. Aquí los más relevantes.</p>
+    <div class="table-wrapper">
+      <table class="contracts-table" id="contracts-table">
+        <thead>
+          <tr>
+            <th>¿Para qué?</th>
+            <th>Importe</th>
+            <th>Tipo</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody id="contracts-body"></tbody>
+      </table>
+    </div>
+    <div class="source-note">
+      <span>📄 Fuente:</span>
+      <a href="https://www.leganes.org/web/transparencia/licitacion-e-informacion-de-obras-publicas" target="_blank" rel="noopener">Licitaciones — leganes.org</a>
+    </div>
+  </div>
+</section>
+
+<!-- ACERCA -->
+<section class="section" id="acerca">
+  <div class="container">
+    <h2 class="section-title">ℹ️ ¿Qué es Leganés Claro?</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-icon">📖</div>
+        <h3>Lenguaje sencillo</h3>
+        <p>Traducimos los documentos oficiales a un lenguaje que cualquier persona pueda entender, sin necesitar formación jurídica ni económica.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">🔗</div>
+        <h3>Datos oficiales</h3>
+        <p>Toda la información viene directamente del <a href="https://www.leganes.org/web/transparencia" target="_blank" rel="noopener">Portal de Transparencia</a> del Ayuntamiento de Leganés. Siempre enlazamos la fuente original.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">🙋</div>
+        <h3>Para todos los vecinos</h3>
+        <p>Este portal es una iniciativa ciudadana. No somos el Ayuntamiento. Si ves un error o quieres colaborar, escríbenos.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">🔄</div>
+        <h3>Actualización regular</h3>
+        <p>Actualizamos los datos tras cada pleno ordinario y cuando se publican nuevos presupuestos o contratos relevantes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p>Portal ciudadano independiente · Datos del <a href="https://www.leganes.org/web/transparencia" target="_blank" rel="noopener">Portal de Transparencia del Ayuntamiento de Leganés</a></p>
+    <p class="footer-small">Esta web no está afiliada al Ayuntamiento de Leganés. Los resúmenes son orientativos; consulta siempre los documentos oficiales para información completa.</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
