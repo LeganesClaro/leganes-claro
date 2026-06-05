@@ -56,99 +56,31 @@ const DATA = {
 
   // ── PLENOS ──────────────────────────────────────────────────
   plenos: [
+    // ── 2026 ──
     {
-        "dia": 30,
-        "mes": "ABR",
-        "año": 2026,
-        "tipo": "Ordinario",
-        "titulo": "Pleno Ordinario de abril 2026",
-        "acuerdos": [
-            {
-                "icono": "✅",
-                "texto": "<strong>APROBADO</strong> — Se aprueba el acta de la sesión anterior (pleno ordinario del 26 de marzo de 2026). (Unanimidad de todos los asistentes)"
-            },
-            {
-                "icono": "✅",
-                "texto": "<strong>APROBADO</strong> — Se inscriben en el Registro Municipal de Asociaciones dos nuevas entidades: la Asociación LEGABAILA y el Club Deportivo Elemental Walking Fútbol Leganés. Esto les permite participar oficialmente en los órganos de participación ciudadana del municipio. (PP, PSOE, ULEG, Más Madrid y Podemos-IU-AV a favor; VOX se abstiene)"
-            },
-            {
-                "icono": "ℹ️",
-                "texto": "<strong>EN DEBATE</strong> — Moción presentada por Más Madrid Leganés para que el Ayuntamiento apoye a las trabajadoras de las escuelas infantiles en su huelga indefinida, reclamando mejores salarios, reducción de ratios y reconocimiento de su labor educativa en la etapa de 0 a 3 años. El texto del acta se interrumpe antes de recoger el resultado de la votación de este punto."
-            }
-        ],
-        "linkActa": "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
-        "linkVideo": "https://www.youtube.com/results?search_query=pleno+leganes+abr+2026"
-    },
-    {
-        "dia": 26,
-        "mes": "MAR",
-        "año": 2026,
-        "tipo": "Ordinario",
-        "titulo": "Pleno Ordinario de marzo 2026",
-        "acuerdos": [
-            {
-                "icono": "✅",
-                "texto": "<strong>APROBADO</strong> — Se aprueba el acta de la sesión ordinaria anterior, celebrada el 26 de febrero de 2026. (Unanimidad de todos los grupos)"
-            },
-            {
-                "icono": "❌",
-                "texto": "<strong>RECHAZADO</strong> — Se rechaza pagar una deuda de 27.560,39 € a la empresa Jotrinsa Talleres por suministro de piezas eléctricas y mecánicas para vehículos municipales. Esas facturas son de 2017 y 2018 y se tramitaron sin pasar el control obligatorio de la Intervención municipal (fiscalización previa), lo que hace el gasto irregular. El equipo de gobierno (PP y ULEG) votó a favor de pagarlo alegando que el servicio sí se prestó y era mejor pagar que enfrentarse a una indemnización mayor; la oposición de izquierdas lo rechazó; VOX se abstuvo. Al no alcanzar mayoría suficiente, la propuesta queda rechazada. (PP y ULEG a favor; PSOE, Más Madrid-Leganés y Podemos-IU-Alianza Verde en contra; VOX se abstiene)"
-            }
-        ],
-        "linkActa": "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
-        "linkVideo": "https://www.youtube.com/results?search_query=pleno+leganes+mar+2026"
-    },
-    {
-        "dia": 26,
-        "mes": "FEB",
-        "año": 2026,
-        "tipo": "Ordinario",
-        "titulo": "Pleno Ordinario de febrero 2026",
-        "acuerdos": [
-            {
-                "icono": "✅",
-                "texto": "<strong>APROBADO</strong> — Se aprueba el acta de la sesión ordinaria celebrada el 15 de enero de 2026. (Todos los grupos a favor, por unanimidad)"
-            },
-            {
-                "icono": "✅",
-                "texto": "<strong>APROBADO</strong> — Se autoriza a un agente de la Policía Local de Leganés a compaginar su trabajo en el Ayuntamiento con el de profesor asociado en la Universidad de Nebrija, en horario de tarde, desde el 26 de enero hasta el 17 de julio de 2026. Se ha comprobado que los horarios no se solapan y que el sueldo conjunto no supera los límites legales. (PP y ULEG a favor; PSOE, Más Madrid, Podemos-IU y VOX se abstienen)"
-            },
-            {
-                "icono": "✅",
-                "texto": "<strong>APROBADO</strong> — Se autoriza a un empleado municipal a compaginar su trabajo en el Ayuntamiento con el de profesor asociado en la Universidad Autónoma de Madrid. (PP y ULEG a favor; PSOE, Más Madrid, Podemos-IU y VOX se abstienen)"
-            }
-        ],
-        "linkActa": "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
-        "linkVideo": "https://www.youtube.com/results?search_query=pleno+leganes+feb+2026"
-    },
-    {
-        "dia": 15,
-        "mes": "ENE",
-        "año": 2026,
-        "tipo": "Ordinario",
-        "titulo": "Pleno Ordinario de enero 2026",
-        "acuerdos": [
-            {
-                "icono": "✅",
-                "texto": "<strong>APROBADO</strong> — Se aprueba el acta de la sesión ordinaria anterior, celebrada el 11 de diciembre de 2025. (Unanimidad de todos los grupos)"
-            },
-            {
-                "icono": "✅",
-                "texto": "<strong>APROBADO</strong> — Se cambia el día de los plenos ordinarios: a partir de febrero de 2026 se celebrarán el último jueves de cada mes (antes era el segundo jueves), a las 16:00 h, salvo agosto. El cambio se pide a petición de la concejal portavoz de VOX, Beatriz Tejero, que va a ser también diputada en la Asamblea de Madrid y los plenos de ambas instituciones coincidían en el calendario. (Unanimidad de todos los grupos)"
-            },
-            {
-                "icono": "✅",
-                "texto": "<strong>APROBADO</strong> — Moción de VOX para que el Ayuntamiento ponga en marcha un servicio de limpieza rápida de grafitis en paredes, muros y mobiliario urbano municipal, y que la Policía Local vigile y sancione a quienes hagan pintadas, además de lanzar campañas de concienciación ciudadana. VOX denunció que el problema lleva meses sin solución y que en toda la ciudad se ven pintadas sin limpiar durante semanas. (PSOE y VOX a favor; PP, ULEG, Más Madrid y Podemos-IU se abstienen)"
-            },
-            {
-                "icono": "ℹ️",
-                "texto": "<strong>INFORMADO / SIN RESULTADO REGISTRADO</strong> — Moción de Más Madrid Leganés para exigir a la Comunidad de Madrid que rectifique el proyecto de ampliación sur de la línea 11 de Metro, ya que según el estudio informativo publicado el 29 de diciembre de 2025 en el BOCM, la nueva estación del barrio de La Fortuna no conectaría con las estaciones de Metrosur de Leganés, lo que se considera perjudicial para la movilidad de los vecinos. (Resultado de votación no disponible en el texto proporcionado, el acta queda incompleta)"
-            }
-        ],
-        "linkActa": "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
-        "linkVideo": "https://www.youtube.com/results?search_query=pleno+leganes+ene+2026"
-    }
-],
+      año: 2026,
+      dia: 30,
+      mes: "MAY",
+      tipo: "Ordinario",
+      titulo: "Pleno de mayo 2026",
+      acuerdos: [
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Actas de sesiones anteriores (30 abr por unanimidad; 11 may con PP y ULEG a favor, oposición se abstiene)." },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Suplemento de crédito para amortización de operaciones de deuda. (PP y ULEG a favor; PSOE, Más Madrid, Podemos y VOX en contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Aumento de subvenciones a 5 clubs deportivos: +988.601 € para Voleibol, Baloncesto, Fútbol Sala, Balonmano y ADIL. (PP, ULEG y VOX a favor)" },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Crédito extraordinario para construcción de cubiertas en pistas deportivas. (PP y ULEG a favor; PSOE, Más Madrid, Podemos y VOX en contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Corrección del Inventario Municipal a 31 de diciembre de 2025. (PP y ULEG a favor; oposición se abstiene)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Condecoraciones y distinciones a agentes de la Policía Local por méritos en 2025. (PP, ULEG y VOX a favor; PSOE, Más Madrid y Podemos se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Contestación a recurso de reposición municipal. (PP, ULEG y PSOE a favor; Más Madrid, Podemos y VOX se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Inscripción de entidades y asociaciones ciudadanas en el Registro Municipal. (PP, ULEG, PSOE, Más Madrid y Podemos a favor; VOX se abstiene)" },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Moción de ULEG para dar el nombre de 'Sonia Bermúdez' al campo de fútbol de El Carrascal. (PP y ULEG a favor; PSOE, Más Madrid, Podemos y VOX en contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Más Madrid por comedores escolares universales y gratuitos. (PSOE, Más Madrid y Podemos a favor; PP y VOX en contra; ULEG se abstiene)" },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Moción de Más Madrid por vivienda pública en alquiler asequible. Empate: PP y ULEG en contra, PSOE, Más Madrid y Podemos a favor, VOX se abstiene. El alcalde desempata en contra." },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Más Madrid para que la Comunidad de Madrid construya una residencia de mayores de gestión pública en Leganés. (PSOE, Más Madrid y Podemos a favor; PP en contra; ULEG y VOX se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE sobre políticas de bienestar animal. (PSOE, Más Madrid y Podemos a favor; PP, ULEG y VOX se abstienen)" },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Moción del PSOE de apoyo al equipo ciclista Vinagres BTT Team Candil. (Solo PSOE a favor; PP y ULEG en contra; Más Madrid, Podemos y VOX se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE para la instalación de aseos públicos gratuitos y autolimpiables en Leganés. (PSOE, Más Madrid y Podemos a favor; PP, ULEG y VOX se abstienen)" },
+        { icono: "ℹ️", texto: "<strong>RETIRADAS</strong> — Dos mociones de VOX (regularización masiva y comisión de investigación de seguridad) fueron retiradas por el propio grupo antes de votarse." }
+      ],
       linkActa: "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
       linkVideo: "https://www.youtube.com/live/WN1lUcb6DKM"
     },
@@ -196,10 +128,11 @@ const DATA = {
       dia: 30,
       mes: "ABR",
       tipo: "Ordinario",
-      titulo: "Pleno de abril 2026",
+      titulo: "Pleno Ordinario de abril 2026",
       acuerdos: [
-        { icono: "ℹ️", texto: "<strong>CONTEXTO</strong> — El Gobierno (PP-ULEG) priorizó la gestión y descartó debates ideológicos. La oposición acudió con pocas propuestas propias al no haber participado en la negociación del superávit." },
-        { icono: "ℹ️", texto: "<strong>RESULTADO</strong> — 16 puntos tratados: 8 aprobados, 3 rechazados y 5 retirados o dejados sobre la mesa. Sesión disponible en YouTube (2 partes)." }
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Acta de la sesión ordinaria del 26 de marzo de 2026. (Unanimidad)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Inscripción en el Registro Municipal de Asociaciones de LEGABAILA y del Club Deportivo Elemental Walking Fútbol Leganés. (PP, PSOE, ULEG, Más Madrid y Podemos-IU-AV a favor; VOX se abstiene)" },
+        { icono: "ℹ️", texto: "<strong>EN DEBATE</strong> — Moción de Más Madrid para que el Ayuntamiento apoye a las trabajadoras de las escuelas infantiles en huelga indefinida, reclamando mejores salarios, reducción de ratios y reconocimiento de su labor. (Resultado no recogido en el acta disponible)" }
       ],
       linkActa: "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
       linkVideo: "https://www.youtube.com/live/uG1YFbpLtSU"
@@ -209,7 +142,7 @@ const DATA = {
       dia: 27,
       mes: "MAR",
       tipo: "Ordinario",
-      titulo: "Pleno de marzo 2026",
+      titulo: "Pleno Ordinario de marzo 2026",
       acuerdos: [
         { icono: "✅", texto: "<strong>APROBADO</strong> — Acta de la sesión del 26 de febrero. (Unanimidad)" },
         { icono: "❌", texto: "<strong>RECHAZADO</strong> — Convalidación de factura a Jotrinsa por 27.560 €. (PP y ULEG a favor; VOX se abstiene; PSOE, Más Madrid y Podemos en contra)" },
@@ -235,24 +168,24 @@ const DATA = {
       dia: 26,
       mes: "FEB",
       tipo: "Ordinario",
-      titulo: "Pleno de febrero 2026",
+      titulo: "Pleno Ordinario de febrero 2026",
       acuerdos: [
         { icono: "✅", texto: "<strong>APROBADO</strong> — Acta de la sesión del 15 de enero. (Unanimidad)" },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Compatibilidad laboral para actividad docente en la Universidad Nebrija. (PP y ULEG a favor; PSOE, Más Madrid, Podemos y VOX se abstienen)" },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Compatibilidad laboral para profesor de la UAM. (PP y ULEG a favor; PSOE, Más Madrid, Podemos y VOX se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Compatibilidad laboral: agente de la Policía Local autorizado a ser profesor asociado en la Universidad de Nebrija (tarde, sin solapar horarios). (PP y ULEG a favor; PSOE, Más Madrid, Podemos-IU y VOX se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Compatibilidad laboral: empleado municipal autorizado a ser profesor asociado en la Universidad Autónoma de Madrid. (PP y ULEG a favor; PSOE, Más Madrid, Podemos-IU y VOX se abstienen)" },
         { icono: "❌", texto: "<strong>RECHAZADO</strong> — Recurso de reposición de la empresa Cataliza. (PP y ULEG a favor; PSOE, Más Madrid y Podemos en contra; VOX se abstiene)" },
         { icono: "✅", texto: "<strong>APROBADO</strong> — Plan especial para parcela RU manzana 2. (PP, ULEG y PSOE a favor; Más Madrid, Podemos y VOX se abstienen)" },
         { icono: "❌", texto: "<strong>RECHAZADO</strong> — Moción de VOX: prohibición de ocultar el rostro en espacios públicos. (Solo VOX a favor; PSOE, Más Madrid y Podemos en contra; PP y ULEG se abstienen)" },
         { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de VOX: estudio de riesgos ferroviarios en Leganés. (VOX a favor; PP, ULEG, PSOE, Más Madrid y Podemos se abstienen)" },
-        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Moción de VOX: regularización de migrantes. (Solo VOX a favor; PP, ULEG, PSOE, Más Madrid y Podemos se abstienen/contra)" },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Podemos: conmemoración del 8M - Día Internacional de la Mujer. (PSOE, ULEG, Más Madrid y Podemos a favor; VOX en contra; PP se abstiene)" },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Moción de VOX: regularización de migrantes. (Solo VOX a favor; PP, ULEG, PSOE, Más Madrid y Podemos en contra o abstención)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Podemos: conmemoración del 8M. (PSOE, ULEG, Más Madrid y Podemos a favor; VOX en contra; PP se abstiene)" },
         { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Podemos: regularización de migrantes. (PSOE, Más Madrid y Podemos a favor; PP y VOX en contra; ULEG se abstiene)" },
         { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de ULEG: apoyo al Club Voleibol Leganés Femenino y petición a la Federación de que reconsidere su sanción. (Unanimidad)" },
         { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Más Madrid: salud mental. (PSOE, ULEG, Más Madrid y Podemos a favor; PP en contra; VOX se abstiene)" },
         { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Más Madrid: vivienda para mujeres víctimas de violencia. (PSOE, ULEG, Más Madrid y Podemos a favor; VOX en contra; PP se abstiene)" },
         { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE: revisión de calefacciones en edificios municipales. (PSOE, Más Madrid, Podemos y VOX a favor; PP y ULEG en contra)" },
         { icono: "🔄", texto: "<strong>RETIRADA</strong> — Moción del PSOE sobre el 8M. (Retirada por el proponente)" },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE: instalación de mesas de petanca en parques. (PSOE, Más Madrid, Podemos y VOX a favor; PP y ULEG se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE: mesas de petanca en parques. (PSOE, Más Madrid, Podemos y VOX a favor; PP y ULEG se abstienen)" },
         { icono: "✅", texto: "<strong>APROBADO (urgencia)</strong> — Moción del PSOE: reprobación del alcalde. (PSOE, Más Madrid y Podemos a favor; PP y ULEG en contra; VOX se abstiene)" }
       ],
       linkActa: "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
@@ -263,11 +196,12 @@ const DATA = {
       dia: 15,
       mes: "ENE",
       tipo: "Ordinario",
-      titulo: "Pleno de enero 2026",
+      titulo: "Pleno Ordinario de enero 2026",
       acuerdos: [
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Tres mociones del PSOE sobre igualdad, vivienda y prevención de incendios salieron adelante." },
-        { icono: "ℹ️", texto: "<strong>CONTEXTO POLÍTICO</strong> — El PSOE criticó la «falta de proyecto y planificación» del Gobierno local (PP-ULEG). El Ayuntamiento funciona con presupuesto prorrogado de 2025." },
-        { icono: "ℹ️", texto: "<strong>INFORMADO</strong> — Sesión disponible en YouTube." }
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Acta de la sesión ordinaria del 11 de diciembre de 2025. (Unanimidad)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Cambio del día de los plenos ordinarios: a partir de febrero se celebrarán el último jueves de cada mes en vez del segundo, a las 16:00 h, a petición de la concejal de VOX que también es diputada en la Asamblea de Madrid y los plenos coincidían en el calendario. (Unanimidad)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de VOX: servicio de limpieza rápida de grafitis en paredes y mobiliario urbano, y vigilancia policial para sancionar pintadas ilegales. (PSOE y VOX a favor; PP, ULEG, Más Madrid y Podemos-IU se abstienen)" },
+        { icono: "ℹ️", texto: "<strong>EN DEBATE</strong> — Moción de Más Madrid para exigir a la Comunidad de Madrid que rectifique el proyecto de ampliación de la línea 11 de Metro, ya que la nueva estación de La Fortuna no conectaría con Metrosur. (Resultado no disponible en el acta)" }
       ],
       linkActa: "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
       linkVideo: "https://www.youtube.com/live/yQ3eSpeqZPQ"

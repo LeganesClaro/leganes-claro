@@ -160,13 +160,29 @@ def reemplazar_array(contenido: str, nombre_array: str, nuevo_valor: list) -> st
     return reemplazado
 
 def extraer_array(contenido: str, nombre_array: str) -> list:
-    """Extrae un array de data.js como lista Python."""
+    """
+    Extrae un array de data.js como lista Python.
+    Maneja tanto JSON puro como sintaxis JavaScript (claves sin comillas).
+    """
     match = re.search(rf'{re.escape(nombre_array)}:\s*(\[.*?\])', contenido, re.DOTALL)
-    if match:
-        try:
-            return json.loads(match.group(1))
-        except json.JSONDecodeError:
-            pass
+    if not match:
+        return []
+    texto = match.group(1)
+    # Intenta primero JSON puro
+    try:
+        return json.loads(texto)
+    except json.JSONDecodeError:
+        pass
+    # Convierte JS a JSON: añade comillas a claves sin comillas (año: → "año":)
+    try:
+        js_a_json = re.sub(r'(?<!")(\b\w+\b)(?!")(\s*:)', r'"\1"\2', texto)
+        # Elimina comas finales antes de } o ]
+        js_a_json = re.sub(r',\s*([}\]])', r'\1', js_a_json)
+        return json.loads(js_a_json)
+    except json.JSONDecodeError:
+        pass
+    # Si todo falla devuelve vacío (no sobreescribir)
+    print(f"  [aviso] No se pudo leer el array '{nombre_array}' — se conserva el existente")
     return []
 
 # ── Claude: prompts ────────────────────────────────────────────
