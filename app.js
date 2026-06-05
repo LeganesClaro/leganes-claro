@@ -189,8 +189,17 @@ function renderSubvenciones() {
     resuelta:   ['status-adjudicado', '✅ Resuelta'],
     cerrada:    ['status-finalizado', '✔ Cerrada'],
   };
+  const BDNS_URL = "https://www.pap.hacienda.gob.es/bdnstrans/GE/es/convocatorias?entidad=Ayuntamiento%20de%20Legan%C3%A9s";
   tbody.innerHTML = items.map(s => {
     const [cls, label] = estadoLabel[s.estado] || ['status-licitacion', s.estado];
+    let importeHtml;
+    if (!s.importe || s.importe === 'null') {
+      importeHtml = `<a href="${BDNS_URL}" target="_blank" rel="noopener" style="font-size:.8rem;color:var(--primary)">Ver en BDNS →</a>`;
+    } else if (s.importe === 'Ver detalle en BDNS') {
+      importeHtml = `<a href="${BDNS_URL}" target="_blank" rel="noopener" style="font-size:.8rem;color:var(--primary)">Ver en BDNS →</a>`;
+    } else {
+      importeHtml = `<span class="amount-cell">${s.importe}</span>`;
+    }
     return `
       <tr>
         <td>
@@ -198,7 +207,7 @@ function renderSubvenciones() {
           <div class="contract-sub">${s.detalle}</div>
           ${s.beneficiarios ? `<div class="contract-sub">👥 ${s.beneficiarios}</div>` : ''}
         </td>
-        <td class="amount-cell">${s.importe}</td>
+        <td>${importeHtml}</td>
         <td><span class="status-badge ${cls}">${label}</span></td>
       </tr>
     `;

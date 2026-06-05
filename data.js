@@ -367,76 +367,76 @@ const DATA = {
   // Fuente: leganes.org/web/transparencia/convocatoria-anual-local-subvenciones
   subvenciones: [
     {
-        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Cultura",
-        "detalle": "Financiar proyectos culturales desarrollados por asociaciones locales sin ánimo de lucro",
-        "importe": null,
-        "beneficiarios": null,
-        "estado": "resuelta"
+      nombre: "Clubs deportivos — subvenciones nominativas 2026",
+      detalle: "Voleibol Leganés (670.000 €), Baloncesto Leganés (650.500 €), Fútbol Sala Masdeporte (400.000 €), Balonmano Leganés (184.000 €) y ADIL (47.500 €). Aprobado en pleno el 30 de mayo de 2026.",
+      importe: "1.952.000 €",
+      beneficiarios: "5 clubs deportivos",
+      estado: "resuelta"
     },
     {
-        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Cultura UPL",
-        "detalle": "Financiar proyectos culturales en el marco del programa Cultura UPL",
-        "importe": null,
-        "beneficiarios": null,
-        "estado": "resuelta"
+      nombre: "Asociaciones sin ánimo de lucro — Área Cultura",
+      detalle: "Ayudas a asociaciones locales para financiar proyectos y actividades culturales en Leganés.",
+      importe: "Ver detalle en BDNS",
+      beneficiarios: null,
+      estado: "resuelta"
     },
     {
-        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Deportes",
-        "detalle": "Financiar proyectos y actividades deportivas desarrollados por asociaciones locales",
-        "importe": null,
-        "beneficiarios": null,
-        "estado": "resuelta"
+      nombre: "Asociaciones sin ánimo de lucro — Área Deportes",
+      detalle: "Ayudas a asociaciones y clubs deportivos locales para financiar actividades y proyectos deportivos.",
+      importe: "Ver detalle en BDNS",
+      beneficiarios: null,
+      estado: "resuelta"
     },
     {
-        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Discapacidad",
-        "detalle": "Financiar proyectos dirigidos a personas con discapacidad promovidos por asociaciones locales",
-        "importe": null,
-        "beneficiarios": null,
-        "estado": "resuelta"
+      nombre: "Asociaciones sin ánimo de lucro — Área Servicios Sociales",
+      detalle: "Ayudas a entidades que trabajan en atención social, exclusión, mayores, infancia y familias en dificultad.",
+      importe: "Ver detalle en BDNS",
+      beneficiarios: null,
+      estado: "resuelta"
     },
     {
-        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Empleo",
-        "detalle": "Financiar proyectos de fomento del empleo desarrollados por asociaciones locales",
-        "importe": null,
-        "beneficiarios": null,
-        "estado": "resuelta"
+      nombre: "Asociaciones sin ánimo de lucro — Área Igualdad",
+      detalle: "Ayudas a entidades que promueven la igualdad entre mujeres y hombres y previenen la violencia de género.",
+      importe: "Ver detalle en BDNS",
+      beneficiarios: null,
+      estado: "resuelta"
     },
     {
-        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Cooperación",
-        "detalle": "Financiar proyectos de cooperación y solidaridad promovidos por asociaciones locales",
-        "importe": null,
-        "beneficiarios": null,
-        "estado": "resuelta"
+      nombre: "Asociaciones sin ánimo de lucro — Área Discapacidad",
+      detalle: "Ayudas a asociaciones que trabajan con personas con discapacidad física, intelectual o sensorial.",
+      importe: "Ver detalle en BDNS",
+      beneficiarios: null,
+      estado: "resuelta"
     },
     {
-        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Igualdad",
-        "detalle": "Financiar proyectos de promoción de la igualdad desarrollados por asociaciones locales",
-        "importe": null,
-        "beneficiarios": null,
-        "estado": "resuelta"
+      nombre: "Asociaciones sin ánimo de lucro — Área Medio Ambiente",
+      detalle: "Ayudas a entidades que desarrollan proyectos de sostenibilidad, reciclaje y concienciación ambiental.",
+      importe: "Ver detalle en BDNS",
+      beneficiarios: null,
+      estado: "resuelta"
     },
     {
-        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Servicios Sociales",
-        "detalle": "Financiar proyectos de atención social promovidos por asociaciones locales",
-        "importe": null,
-        "beneficiarios": null,
-        "estado": "resuelta"
+      nombre: "Asociaciones sin ánimo de lucro — Área Empleo",
+      detalle: "Ayudas para proyectos de inserción laboral y fomento del empleo entre colectivos vulnerables.",
+      importe: "Ver detalle en BDNS",
+      beneficiarios: null,
+      estado: "resuelta"
     },
     {
-        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Medio Ambiente y Sostenibilidad",
-        "detalle": "Financiar proyectos medioambientales y de sostenibilidad desarrollados por asociaciones locales",
-        "importe": null,
-        "beneficiarios": null,
-        "estado": "resuelta"
+      nombre: "Asociaciones sin ánimo de lucro — Área Cooperación",
+      detalle: "Ayudas para proyectos de cooperación internacional y solidaridad con países en desarrollo.",
+      importe: "Ver detalle en BDNS",
+      beneficiarios: null,
+      estado: "resuelta"
     },
     {
-        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Juntas Municipales de Distrito (La Fortuna y San Nicasio)",
-        "detalle": "Financiar proyectos vecinales y comunitarios en los distritos de La Fortuna y San Nicasio",
-        "importe": null,
-        "beneficiarios": null,
-        "estado": "resuelta"
+      nombre: "Juntas Municipales de Distrito — La Fortuna y San Nicasio",
+      detalle: "Ayudas para proyectos vecinales y comunitarios en los distritos de La Fortuna y San Nicasio.",
+      importe: "Ver detalle en BDNS",
+      beneficiarios: null,
+      estado: "resuelta"
     }
-],
+  ],
 
   // ── CONTRATOS ─────────────────────────────────────────────────
   // Fuente: leganes.org/web/transparencia/licitacion-e-informacion-de-obras-publicas
