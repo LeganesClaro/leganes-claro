@@ -124,11 +124,52 @@
   <div class="container">
     <h2 class="section-title">📋 Contratos y obras</h2>
     <p class="section-sub">Cuando el Ayuntamiento necesita algo (obras, servicios, suministros) lo contrata a empresas. Aquí los más relevantes.</p>
+
+    <div class="filter-bar" style="flex-wrap:wrap;gap:.5rem;margin-bottom:1rem;">
+      <select id="filtro-año" class="filter-select">
+        <option value="">Todos los años</option>
+      </select>
+      <select id="filtro-mes" class="filter-select">
+        <option value="">Todos los meses</option>
+        <option value="1">Enero</option>
+        <option value="2">Febrero</option>
+        <option value="3">Marzo</option>
+        <option value="4">Abril</option>
+        <option value="5">Mayo</option>
+        <option value="6">Junio</option>
+        <option value="7">Julio</option>
+        <option value="8">Agosto</option>
+        <option value="9">Septiembre</option>
+        <option value="10">Octubre</option>
+        <option value="11">Noviembre</option>
+        <option value="12">Diciembre</option>
+      </select>
+      <select id="filtro-tipo" class="filter-select">
+        <option value="">Todos los tipos</option>
+        <option value="Obras">Obras</option>
+        <option value="Servicios">Servicios</option>
+        <option value="Suministros">Suministros</option>
+        <option value="Subvenciones">Subvenciones</option>
+        <option value="Urbanismo">Urbanismo</option>
+        <option value="Tecnología">Tecnología</option>
+      </select>
+      <select id="filtro-estado" class="filter-select">
+        <option value="">Todos los estados</option>
+        <option value="licitacion">En licitación</option>
+        <option value="adjudicado">Adjudicado</option>
+        <option value="ejecucion">En ejecución</option>
+        <option value="finalizado">Finalizado</option>
+      </select>
+      <button class="filter-btn" id="filtro-reset" style="margin-left:auto">✕ Limpiar filtros</button>
+    </div>
+    <div id="contratos-count" style="font-size:.85rem;color:#6b7280;margin-bottom:.75rem;"></div>
+
     <div class="table-wrapper">
       <table class="contracts-table" id="contracts-table">
         <thead>
           <tr>
             <th>¿Para qué?</th>
+            <th>Fecha</th>
             <th>Importe</th>
             <th>Tipo</th>
             <th>Estado</th>

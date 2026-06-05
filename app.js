@@ -207,22 +207,73 @@ function renderSubvenciones() {
 
 // ── CONTRATOS ─────────────────────────────────────────────────
 
+const MESES = ['', 'Enero','Febrero','Marzo','Abril','Mayo','Junio',
+               'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+const ESTADO_LABEL = {
+  licitacion: ['status-licitacion', '📢 En licitación'],
+  adjudicado: ['status-adjudicado', '✅ Adjudicado'],
+  ejecucion:  ['status-ejecucion',  '🔨 En ejecución'],
+  finalizado: ['status-finalizado', '✔ Finalizado']
+};
+
 function renderContratos() {
+  // Rellena el selector de años dinámicamente
+  const años = [...new Set(DATA.contratos.map(c => c.año))].sort((a,b) => b-a);
+  const selectAño = document.getElementById('filtro-año');
+  años.forEach(a => {
+    const opt = document.createElement('option');
+    opt.value = a; opt.textContent = a;
+    selectAño.appendChild(opt);
+  });
+
+  // Escucha cambios en los filtros
+  ['filtro-año','filtro-mes','filtro-tipo','filtro-estado'].forEach(id => {
+    document.getElementById(id).addEventListener('change', aplicarFiltrosContratos);
+  });
+  document.getElementById('filtro-reset').addEventListener('click', () => {
+    ['filtro-año','filtro-mes','filtro-tipo','filtro-estado'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+    aplicarFiltrosContratos();
+  });
+
+  aplicarFiltrosContratos();
+}
+
+function aplicarFiltrosContratos() {
+  const año    = document.getElementById('filtro-año').value;
+  const mes    = document.getElementById('filtro-mes').value;
+  const tipo   = document.getElementById('filtro-tipo').value;
+  const estado = document.getElementById('filtro-estado').value;
+
+  let lista = DATA.contratos;
+  if (año)    lista = lista.filter(c => String(c.año) === año);
+  if (mes)    lista = lista.filter(c => String(c.mes) === mes);
+  if (tipo)   lista = lista.filter(c => c.tipo === tipo);
+  if (estado) lista = lista.filter(c => c.estado === estado);
+
+  const count = document.getElementById('contratos-count');
+  count.textContent = lista.length === DATA.contratos.length
+    ? `${lista.length} contratos`
+    : `${lista.length} de ${DATA.contratos.length} contratos`;
+
   const tbody = document.getElementById('contracts-body');
-  const estadoLabel = {
-    licitacion: ['status-licitacion', '📢 En licitación'],
-    adjudicado: ['status-adjudicado', '✅ Adjudicado'],
-    ejecucion: ['status-ejecucion', '🔨 En ejecución'],
-    finalizado: ['status-finalizado', '✔ Finalizado']
-  };
-  tbody.innerHTML = DATA.contratos.map(c => {
-    const [cls, label] = estadoLabel[c.estado] || ['', c.estado];
+  if (!lista.length) {
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#9ca3af;padding:2rem;">No hay contratos con estos filtros</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = lista.map(c => {
+    const [cls, label] = ESTADO_LABEL[c.estado] || ['', c.estado];
+    const fecha = c.mes ? `${MESES[c.mes]} ${c.año}` : c.año;
     return `
       <tr>
         <td>
           <div class="contract-name">${c.nombre}</div>
           <div class="contract-sub">${c.detalle}</div>
         </td>
+        <td style="white-space:nowrap;font-size:.85rem;color:#6b7280">${fecha}</td>
         <td class="amount-cell">${c.importe}</td>
         <td>${c.tipo}</td>
         <td><span class="status-badge ${cls}">${label}</span></td>

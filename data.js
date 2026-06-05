@@ -438,17 +438,18 @@ const DATA = {
 
   // ── CONTRATOS ─────────────────────────────────────────────────
   // Fuente: leganes.org/web/transparencia/licitacion-e-informacion-de-obras-publicas
-  // Nota: los datos de contratos detallados están en Excel en el portal.
-  // Los importes incluidos son los aprobados en pleno o anunciados oficialmente.
+  // Cada contrato tiene: año, mes (1-12), nombre, detalle, importe, tipo, estado
   contratos: [
     {
+      año: 2026, mes: 5,
       nombre: "Subvenciones a clubs deportivos 2026",
-      detalle: "Voleibol Leganés, Baloncesto Leganés, Fútbol Sala Masdeporte, Balonmano Leganés y ADIL",
-      importe: "1.952.000 €",
+      detalle: "Voleibol Leganés (+470.804 €), Baloncesto (+325.000 €), Fútbol Sala (+136.000 €), Balonmano (+40.797 €) y ADIL (+16.000 €)",
+      importe: "988.601 €",
       tipo: "Subvenciones",
       estado: "adjudicado"
     },
     {
+      año: 2026, mes: 3,
       nombre: "Rehabilitación de la Ermita de Polvoranca",
       detalle: "Primera fase de restauración del patrimonio histórico del despoblado medieval de Polvoranca",
       importe: "5.000.000 €",
@@ -456,13 +457,15 @@ const DATA = {
       estado: "licitacion"
     },
     {
+      año: 2026, mes: 3,
       nombre: "Renovación del alumbrado público a LED",
-      detalle: "Sustitución de puntos de luz por tecnología LED — incluida en los presupuestos 2026",
-      importe: "Incluido en 27 M€ de infraestructuras",
+      detalle: "Sustitución de puntos de luz en toda la ciudad por tecnología LED de bajo consumo",
+      importe: "Por determinar",
       tipo: "Obras",
       estado: "licitacion"
     },
     {
+      año: 2026, mes: 4,
       nombre: "Proyecto 'Puerta de Madrid'",
       detalle: "Desarrollo urbanístico con 4.000 nuevas viviendas, el 60% con algún tipo de protección pública",
       importe: "Por determinar",
@@ -470,6 +473,7 @@ const DATA = {
       estado: "licitacion"
     },
     {
+      año: 2026, mes: 4,
       nombre: "Nuevos camiones de recogida de residuos",
       detalle: "Renovación de la flota de vehículos del servicio municipal de recogida de basura",
       importe: "Por determinar",
@@ -477,11 +481,44 @@ const DATA = {
       estado: "licitacion"
     },
     {
+      año: 2026, mes: 4,
       nombre: "Climatización de escuelas infantiles y centros municipales",
-      detalle: "Instalación de sistemas de aire acondicionado y calefacción en centros municipales",
-      importe: "Incluido en presupuesto 2026",
+      detalle: "Instalación de sistemas de climatización en colegios públicos y centros municipales",
+      importe: "Por determinar",
       tipo: "Obras",
       estado: "licitacion"
+    },
+    {
+      año: 2025, mes: 10,
+      nombre: "Contrato de subvenciones a entidades deportivas 2025",
+      detalle: "Club Baloncesto, Voleibol, Balonmano, Fútbol Sala y ADIL — subvenciones nominativas",
+      importe: "963.500 €",
+      tipo: "Subvenciones",
+      estado: "adjudicado"
+    },
+    {
+      año: 2025, mes: 7,
+      nombre: "Obras de mejora en instalaciones deportivas",
+      detalle: "Reforma del campo de fútbol 11 de La Fortuna e instalaciones del CAID",
+      importe: "Por determinar",
+      tipo: "Obras",
+      estado: "finalizado"
+    },
+    {
+      año: 2025, mes: 6,
+      nombre: "Servicio de ayuda a domicilio (SAD)",
+      detalle: "Atención a domicilio para personas mayores y dependientes, con garantías del convenio colectivo",
+      importe: "Por determinar",
+      tipo: "Servicios",
+      estado: "ejecucion"
+    },
+    {
+      año: 2025, mes: 4,
+      nombre: "Plan Municipal de Cooperación 2025-2029",
+      detalle: "Financiación de proyectos de cooperación internacional y solidaridad promovidos desde el Ayuntamiento",
+      importe: "Por determinar",
+      tipo: "Servicios",
+      estado: "adjudicado"
     }
   ]
 };

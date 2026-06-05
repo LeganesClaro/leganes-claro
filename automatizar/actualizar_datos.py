@@ -2,17 +2,17 @@
 Leganés Claro — Script de actualización automática
 ====================================================
 Monitoriza el portal de transparencia de Leganés diariamente.
-Solo llama a Claude cuando detecta contenido genuinamente nuevo,
-por lo que el coste de API es mínimo.
+Solo llama a Claude cuando detecta contenido genuinamente nuevo.
 
 Qué vigila:
-  - Actas de plenos (PDF)
+  - Actas de plenos (PDF desde sede electrónica con Playwright,
+    y artículos de medios locales como respaldo)
   - Contratos y licitaciones
   - Subvenciones y convenios
-  - Presupuestos y modificaciones
 
 REQUISITOS:
-  pip install anthropic requests beautifulsoup4 pypdf2
+  pip install anthropic requests beautifulsoup4 pypdf2 playwright
+  playwright install chromium
 
 USO:
   python actualizar_datos.py                  # revisa todo
@@ -31,6 +31,13 @@ from datetime import datetime
 
 import requests
 from bs4 import BeautifulSoup
+
+# Playwright es opcional: si no está instalado se usan solo fuentes web
+try:
+    from playwright.sync_api import sync_playwright
+    PLAYWRIGHT_OK = True
+except ImportError:
+    PLAYWRIGHT_OK = False
 
 try:
     import anthropic
@@ -245,6 +252,56 @@ def extraer_json_array(texto: str) -> list | None:
         except: pass
     return None
 
+# ── Sede electrónica con Playwright ──────────────────────────
+
+SEDE_PLENOS = "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO"
+
+def obtener_pdfs_sede_electronica() -> list[dict]:
+    """
+    Abre la sede electrónica con un navegador real (Playwright),
+    espera a que cargue el JS y extrae los enlaces a PDFs de actas.
+    """
+    if not PLAYWRIGHT_OK:
+        print("  [info] Playwright no instalado — usando solo fuentes web.")
+        return []
+
+    print("  Abriendo sede electrónica con navegador...")
+    enlaces = []
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page()
+            page.goto(SEDE_PLENOS, timeout=30000)
+            # Espera a que carguen los documentos dinámicos
+            page.wait_for_timeout(4000)
+
+            # Busca todos los enlaces a PDFs de actas
+            for a in page.query_selector_all("a[href]"):
+                href = a.get_attribute("href") or ""
+                texto = a.inner_text().strip()
+                if ".pdf" in href.lower() or "acta" in texto.lower():
+                    url = href if href.startswith("http") else "https://sede.leganes.org" + href
+                    if url not in [e["url"] for e in enlaces]:
+                        enlaces.append({"url": url, "texto": texto or href.split("/")[-1]})
+
+            # Si no hay PDFs directos, busca secciones expandibles
+            if not enlaces:
+                page.click("text=Actas de Plenos", timeout=3000)
+                page.wait_for_timeout(2000)
+                for a in page.query_selector_all("a[href*='.pdf'], a[href*='acta']"):
+                    href = a.get_attribute("href") or ""
+                    texto = a.inner_text().strip()
+                    url = href if href.startswith("http") else "https://sede.leganes.org" + href
+                    if url not in [e["url"] for e in enlaces]:
+                        enlaces.append({"url": url, "texto": texto})
+
+            browser.close()
+    except Exception as e:
+        print(f"  [error Playwright] {e}")
+
+    print(f"  {len(enlaces)} PDF(s) encontrado(s) en la sede electrónica.")
+    return enlaces
+
 # ── Fuentes de noticias de plenos ────────────────────────────
 
 FUENTES_PLENOS = [
@@ -274,10 +331,16 @@ def buscar_articulos_plenos() -> list[dict]:
 # ── Módulo: plenos ─────────────────────────────────────────────
 
 def actualizar_plenos(client, estado: dict, forzar: bool) -> list[dict] | None:
-    print("\n📄 Revisando plenos en medios locales y portal...")
-    articulos = buscar_articulos_plenos()
+    print("\n📄 Revisando plenos en sede electrónica y medios locales...")
 
-    # También busca PDFs en el portal oficial (por si hay alguno accesible)
+    # 1. Sede electrónica (PDFs oficiales, más completos) — requiere Playwright
+    pdfs_sede = obtener_pdfs_sede_electronica()
+    articulos = [{"url": e["url"], "texto": e["texto"], "es_pdf": True} for e in pdfs_sede]
+
+    # 2. Medios locales (como respaldo o complemento)
+    articulos += buscar_articulos_plenos()
+
+    # 3. PDFs del portal web antiguo (actas pre-2024)
     soup_portal = get_page(URLS["plenos"])
     if soup_portal:
         for a in soup_portal.find_all("a", href=True):
