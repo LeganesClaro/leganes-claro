@@ -537,14 +537,24 @@ def main():
         nuevos = actualizar_plenos(client, estado, args.forzar)
         if nuevos:
             plenos_actuales = extraer_array(contenido, "plenos")
-            existentes = {(p["dia"], p["mes"], p["año"]) for p in plenos_actuales}
+            existentes = {(p.get("dia"), str(p.get("mes","")).upper(), p.get("año")) for p in plenos_actuales}
             añadidos = 0
             for p in nuevos:
-                if (p["dia"], p["mes"], p["año"]) not in existentes:
+                clave = (p.get("dia"), str(p.get("mes","")).upper(), p.get("año"))
+                if clave not in existentes:
                     plenos_actuales.insert(0, p)
-                    existentes.add((p["dia"], p["mes"], p["año"]))
+                    existentes.add(clave)
                     añadidos += 1
+                else:
+                    print(f"  [ya existe] {p.get('titulo','?')} — omitido")
             if añadidos:
+                # Ordena por año desc, mes desc, dia desc antes de guardar
+                orden_mes = {"ENE":1,"FEB":2,"MAR":3,"ABR":4,"MAY":5,"JUN":6,
+                             "JUL":7,"AGO":8,"SEP":9,"OCT":10,"NOV":11,"DIC":12}
+                plenos_actuales.sort(
+                    key=lambda p: (p.get("año",0), orden_mes.get(p.get("mes",""),0), p.get("dia",0)),
+                    reverse=True
+                )
                 contenido = reemplazar_array(contenido, "plenos", plenos_actuales)
                 hubo_cambios = True
                 print(f"\n  → {añadidos} pleno(s) nuevo(s) añadido(s) a data.js")
