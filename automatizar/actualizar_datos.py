@@ -340,16 +340,28 @@ def buscar_articulos_plenos() -> list[dict]:
 # ── Módulo: plenos ─────────────────────────────────────────────
 
 def actualizar_plenos(client, estado: dict, forzar: bool) -> list[dict] | None:
-    print("\n📄 Revisando plenos en sede electrónica y medios locales...")
+    print("\n📄 Revisando plenos...")
 
-    # 1. Sede electrónica (PDFs oficiales, más completos) — requiere Playwright
+    articulos = []
+
+    # 1. PDFs descargados manualmente por el usuario en la carpeta cache/
+    #    → Descarga las actas desde https://sede.leganes.org y ponlas en automatizar/cache/
+    pdfs_manuales = list(CACHE_DIR.glob("*.pdf"))
+    if pdfs_manuales:
+        print(f"  {len(pdfs_manuales)} PDF(s) encontrado(s) en cache/")
+        for pdf in pdfs_manuales:
+            articulos.append({"url": str(pdf), "texto": pdf.stem, "es_pdf": True, "es_local": True})
+    else:
+        print(f"  💡 Para obtener actas oficiales: descarga los PDFs desde")
+        print(f"     https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO")
+        print(f"     y ponlos en la carpeta: {CACHE_DIR}")
+
+    # 2. Sede electrónica con Playwright (intenta encontrar PDFs automáticamente)
     pdfs_sede = obtener_pdfs_sede_electronica()
-    articulos = [{"url": e["url"], "texto": e["texto"], "es_pdf": True} for e in pdfs_sede]
+    for e in pdfs_sede:
+        articulos.append({"url": e["url"], "texto": e["texto"], "es_pdf": True})
 
-    # 2. Medios locales (como respaldo o complemento)
-    articulos += buscar_articulos_plenos()
-
-    # 3. PDFs del portal web antiguo (actas pre-2024)
+    # 3. PDFs en el portal web oficial (actas antiguas pre-2024)
     soup_portal = get_page(URLS["plenos"])
     if soup_portal:
         for a in soup_portal.find_all("a", href=True):
@@ -373,9 +385,13 @@ def actualizar_plenos(client, estado: dict, forzar: bool) -> list[dict] | None:
 
         es_pdf = art.get("es_pdf", False)
         if es_pdf:
-            nombre_cache = re.sub(r'[^\w]', '_', art['texto'])[:60] + ".pdf"
-            pdf = descargar_pdf(art["url"], nombre_cache)
-            if not pdf:
+            if art.get("es_local"):
+                # PDF ya está en local (descargado manualmente)
+                pdf = Path(art["url"])
+            else:
+                nombre_cache = re.sub(r'[^\w]', '_', art['texto'])[:60] + ".pdf"
+                pdf = descargar_pdf(art["url"], nombre_cache)
+            if not pdf or not pdf.exists():
                 continue
             texto = extraer_texto_pdf(pdf)
         else:
