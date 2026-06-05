@@ -49,7 +49,7 @@ def cargar_api_key():
     if not key:
         env_file = Path(__file__).parent / ".env"
         if env_file.exists():
-            for line in env_file.read_text().splitlines():
+            for line in env_file.read_text(encoding="utf-8-sig", errors="ignore").splitlines():
                 if line.startswith("ANTHROPIC_API_KEY="):
                     key = line.split("=", 1)[1].strip()
     if not key:
@@ -69,11 +69,14 @@ CACHE_DIR.mkdir(exist_ok=True)
 
 PORTAL = "https://www.leganes.org"
 URLS = {
-    "plenos":       f"{PORTAL}/actas-de-los-plenos",
-    "contratos":    f"{PORTAL}/web/transparencia/licitacion-e-informacion-de-obras-publicas",
-    "subvenciones": f"{PORTAL}/web/transparencia/subvenciones-y-ayudas-publicas",
-    "presupuesto":  f"{PORTAL}/web/transparencia/presupuestos-anuales",
-    "convenios":    f"{PORTAL}/web/transparencia/convenios",
+    "plenos":         f"{PORTAL}/actas-de-los-plenos",
+    "plenos_sede":    "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
+    "contratos":      f"{PORTAL}/web/transparencia/contratos-abiertos-y-negociados",
+    "contratos_obra": f"{PORTAL}/web/transparencia/licitacion-e-informacion-de-obras-publicas",
+    "subvenciones":   f"{PORTAL}/web/transparencia/convocatoria-anual-local-subvenciones",
+    "subvenciones2":  f"{PORTAL}/web/transparencia/sistema-nacional-de-publicidad-de-subvenciones",
+    "convenios":      f"{PORTAL}/web/transparencia/convenios",
+    "presupuesto":    f"{PORTAL}/web/transparencia/presupuestos-anuales",
 }
 
 HEADERS = {
@@ -163,25 +166,30 @@ def extraer_array(contenido: str, nombre_array: str) -> list:
 
 PROMPT_ACTA = """\
 Eres un periodista ciudadano que explica las decisiones del Ayuntamiento de Leganés
-a vecinos sin formación jurídica. Tienes el texto de un acta de pleno municipal.
+a vecinos sin formación jurídica ni económica.
 
+A continuación tienes el texto de un acta o crónica de un pleno municipal de Leganés.
+
+INSTRUCCIONES:
 1. Extrae: día (número), mes (3 letras mayúsculas, ej: ABR), año, tipo (Ordinario/Extraordinario).
-2. Lista los 4-8 acuerdos más importantes con:
-   - icono: "✅" aprobado, "❌" rechazado, "ℹ️" informativo
-   - texto: "<strong>APROBADO/RECHAZADO/INFORMADO</strong> — frase breve y clara, sin jerga"
-   - si hay votos, añádelos al final: (14 sí / 11 no / 0 abs)
+2. Lista ABSOLUTAMENTE TODOS los puntos del orden del día tratados, sin omitir ninguno:
+   - icono: "✅" aprobado, "❌" rechazado, "🔄" retirado o dejado sobre la mesa, "ℹ️" informativo
+   - texto: "<strong>APROBADO/RECHAZADO/RETIRADO/INFORMADO</strong> — descripción clara en lenguaje sencillo"
+   - incluye siempre el resultado de la votación por partido entre paréntesis: (PP y ULEG a favor; PSOE en contra; VOX se abstiene)
+   - NO resumas ni agrupes puntos: cada punto del orden del día debe ser una entrada separada
 
 Devuelve SOLO JSON válido, sin texto antes ni después:
-{
+{{
   "dia": 30, "mes": "ABR", "año": 2026,
   "tipo": "Ordinario", "titulo": "Pleno de abril 2026",
   "acuerdos": [
-    {"icono": "✅", "texto": "<strong>APROBADO</strong> — explicación sencilla."}
+    {{"icono": "✅", "texto": "<strong>APROBADO</strong> — descripción en lenguaje sencillo. (PP y ULEG a favor; PSOE en contra)"}},
+    {{"icono": "❌", "texto": "<strong>RECHAZADO</strong> — descripción. (PP a favor; PSOE, Más Madrid, Podemos y VOX en contra)"}}
   ]
-}
+}}
 
-TEXTO DEL ACTA:
-{texto}
+TEXTO:
+{{texto}}
 """
 
 PROMPT_CONTRATOS = """\
@@ -237,58 +245,95 @@ def extraer_json_array(texto: str) -> list | None:
         except: pass
     return None
 
+# ── Fuentes de noticias de plenos ────────────────────────────
+
+FUENTES_PLENOS = [
+    "https://lavozdeleganes.com/seccion/politica/",
+    "https://www.teleganes.com/category/politica/plenos/",
+    "https://leganesactivo.com/tag/pleno-de-leganes/",
+]
+
+PALABRAS_PLENO = ["pleno", "plenos", "orden del día", "sesión ordinaria", "sesión extraordinaria"]
+
+def buscar_articulos_plenos() -> list[dict]:
+    """Busca artículos de plenos en medios locales."""
+    articulos = []
+    for url in FUENTES_PLENOS:
+        soup = get_page(url)
+        if not soup:
+            continue
+        for a in soup.find_all("a", href=True):
+            texto = a.get_text(strip=True).lower()
+            href = a["href"]
+            if any(p in texto for p in PALABRAS_PLENO) and len(texto) > 20:
+                url_art = href if href.startswith("http") else "https://" + href.lstrip("/")
+                if url_art not in [x["url"] for x in articulos]:
+                    articulos.append({"url": url_art, "texto": a.get_text(strip=True)})
+    return articulos
+
 # ── Módulo: plenos ─────────────────────────────────────────────
 
 def actualizar_plenos(client, estado: dict, forzar: bool) -> list[dict] | None:
-    print("\n📄 Revisando actas de plenos...")
-    soup = get_page(URLS["plenos"])
-    if not soup:
+    print("\n📄 Revisando plenos en medios locales y portal...")
+    articulos = buscar_articulos_plenos()
+
+    # También busca PDFs en el portal oficial (por si hay alguno accesible)
+    soup_portal = get_page(URLS["plenos"])
+    if soup_portal:
+        for a in soup_portal.find_all("a", href=True):
+            href = a["href"]
+            texto = a.get_text(strip=True)
+            if ".pdf" in href.lower() and any(k in texto.lower() for k in ["acta", "pleno"]):
+                url = href if href.startswith("http") else PORTAL + href
+                articulos.append({"url": url, "texto": texto, "es_pdf": True})
+
+    if not articulos:
+        print("  No se encontraron fuentes de plenos.")
         return None
 
-    # Busca enlaces a PDFs de actas
-    enlaces = []
-    for a in soup.find_all("a", href=True):
-        href = a["href"]
-        texto = a.get_text(strip=True)
-        if ".pdf" in href.lower() and any(k in texto.lower() for k in ["acta", "pleno"]):
-            url = href if href.startswith("http") else PORTAL + href
-            enlaces.append({"url": url, "texto": texto})
-
-    if not enlaces:
-        print("  No se encontraron PDFs de actas en el portal.")
-        return None
-
-    print(f"  {len(enlaces)} acta(s) encontrada(s).")
+    print(f"  {len(articulos)} fuente(s) encontrada(s).")
     nuevos_plenos = []
 
-    for enlace in enlaces[:6]:
-        id_pleno = hash_contenido(enlace["url"])
-        if not forzar and ya_procesado(estado, f"pleno_{id_pleno}"):
-            print(f"  [ya procesado] {enlace['texto']}")
+    for art in articulos[:10]:
+        id_art = hash_contenido(art["url"])
+        if not forzar and ya_procesado(estado, f"pleno_{id_art}"):
             continue
 
-        nombre_cache = re.sub(r'[^\w]', '_', enlace['texto'])[:60] + ".pdf"
-        pdf = descargar_pdf(enlace["url"], nombre_cache)
-        if not pdf:
+        es_pdf = art.get("es_pdf", False)
+        if es_pdf:
+            nombre_cache = re.sub(r'[^\w]', '_', art['texto'])[:60] + ".pdf"
+            pdf = descargar_pdf(art["url"], nombre_cache)
+            if not pdf:
+                continue
+            texto = extraer_texto_pdf(pdf)
+        else:
+            soup_art = get_page(art["url"])
+            if not soup_art:
+                continue
+            texto = soup_art.get_text(separator="\n", strip=True)
+
+        if not texto.strip() or len(texto) < 200:
             continue
 
-        texto = extraer_texto_pdf(pdf)
-        if not texto.strip():
+        # Solo procesa si parece un artículo de pleno con contenido real
+        texto_lower = texto.lower()
+        if not any(p in texto_lower for p in ["aprobado", "rechazado", "orden del día", "pleno ordinario", "pleno extraordinario"]):
             continue
 
-        print(f"  Resumiendo con Claude: {enlace['texto']}...")
+        print(f"  Procesando con Claude: {art['texto'][:60]}...")
         try:
-            respuesta = llamar_claude(client, PROMPT_ACTA.format(texto=texto))
+            prompt = PROMPT_ACTA.format(texto=texto[:12000])
+            respuesta = llamar_claude(client, prompt)
             pleno = extraer_json_objeto(respuesta)
-            if pleno:
-                pleno["linkActa"]  = enlace["url"]
+            if pleno and pleno.get("acuerdos") and len(pleno["acuerdos"]) >= 2:
+                pleno["linkActa"]  = URLS["plenos_sede"]
                 pleno["linkVideo"] = (
                     f"https://www.youtube.com/results?search_query="
                     f"pleno+leganes+{pleno.get('mes','').lower()}+{pleno.get('año','')}"
                 )
                 nuevos_plenos.append(pleno)
-                marcar_procesado(estado, f"pleno_{id_pleno}")
-                print(f"  ✅ {pleno.get('titulo', 'Pleno procesado')}")
+                marcar_procesado(estado, f"pleno_{id_art}")
+                print(f"  ✅ {pleno.get('titulo','Pleno')} — {len(pleno['acuerdos'])} puntos")
         except Exception as e:
             print(f"  [error Claude] {e}")
 
@@ -298,11 +343,14 @@ def actualizar_plenos(client, estado: dict, forzar: bool) -> list[dict] | None:
 
 def actualizar_contratos(client, estado: dict, forzar: bool) -> list[dict] | None:
     print("\n📋 Revisando contratos y licitaciones...")
-    soup = get_page(URLS["contratos"])
-    if not soup:
+    # Combina contratos abiertos + obras públicas
+    texto = ""
+    for url_key in ["contratos", "contratos_obra"]:
+        soup = get_page(URLS[url_key])
+        if soup:
+            texto += soup.get_text(separator="\n", strip=True) + "\n"
+    if not texto.strip():
         return None
-
-    texto = soup.get_text(separator="\n", strip=True)
     id_hash = hash_contenido(texto)
 
     if not forzar and ya_procesado(estado, f"contratos_{id_hash}"):
@@ -325,11 +373,14 @@ def actualizar_contratos(client, estado: dict, forzar: bool) -> list[dict] | Non
 
 def actualizar_subvenciones(client, estado: dict, forzar: bool) -> list[dict] | None:
     print("\n🤝 Revisando subvenciones y ayudas...")
-    soup = get_page(URLS["subvenciones"])
-    if not soup:
+    # Combina texto de las dos páginas de subvenciones
+    texto = ""
+    for url_key in ["subvenciones", "subvenciones2"]:
+        soup = get_page(URLS[url_key])
+        if soup:
+            texto += soup.get_text(separator="\n", strip=True) + "\n"
+    if not texto.strip():
         return None
-
-    texto = soup.get_text(separator="\n", strip=True)
     id_hash = hash_contenido(texto)
 
     if not forzar and ya_procesado(estado, f"subvenciones_{id_hash}"):

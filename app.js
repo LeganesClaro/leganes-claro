@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderNovedades();
   renderPlenos(2026);
   renderPresupuesto();
+  renderSubvenciones();
   renderContratos();
   initFilterBtns();
 });
@@ -171,6 +172,37 @@ function renderIngresos() {
 
 function pct(millon) {
   return ((millon / DATA.presupuestoTotal) * 100).toFixed(1);
+}
+
+// ── SUBVENCIONES ──────────────────────────────────────────────
+
+function renderSubvenciones() {
+  const tbody = document.getElementById('subvenciones-body');
+  if (!tbody) return;
+  const items = DATA.subvenciones || [];
+  if (!items.length) {
+    tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;color:#9ca3af;padding:2rem;">Datos en proceso de carga automática</td></tr>';
+    return;
+  }
+  const estadoLabel = {
+    convocada:  ['status-licitacion', '📢 Convocada'],
+    resuelta:   ['status-adjudicado', '✅ Resuelta'],
+    cerrada:    ['status-finalizado', '✔ Cerrada'],
+  };
+  tbody.innerHTML = items.map(s => {
+    const [cls, label] = estadoLabel[s.estado] || ['status-licitacion', s.estado];
+    return `
+      <tr>
+        <td>
+          <div class="contract-name">${s.nombre}</div>
+          <div class="contract-sub">${s.detalle}</div>
+          ${s.beneficiarios ? `<div class="contract-sub">👥 ${s.beneficiarios}</div>` : ''}
+        </td>
+        <td class="amount-cell">${s.importe}</td>
+        <td><span class="status-badge ${cls}">${label}</span></td>
+      </tr>
+    `;
+  }).join('');
 }
 
 // ── CONTRATOS ─────────────────────────────────────────────────

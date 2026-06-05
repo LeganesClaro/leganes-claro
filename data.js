@@ -125,23 +125,39 @@ const DATA = {
     },
     {
       año: 2026,
+      dia: 30,
+      mes: "ABR",
+      tipo: "Ordinario",
+      titulo: "Pleno de abril 2026",
+      acuerdos: [
+        { icono: "ℹ️", texto: "<strong>CONTEXTO</strong> — El Gobierno (PP-ULEG) priorizó la gestión y descartó debates ideológicos. La oposición acudió con pocas propuestas propias al no haber participado en la negociación del superávit." },
+        { icono: "ℹ️", texto: "<strong>RESULTADO</strong> — 16 puntos tratados: 8 aprobados, 3 rechazados y 5 retirados o dejados sobre la mesa. Sesión disponible en YouTube (2 partes)." }
+      ],
+      linkActa: "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
+      linkVideo: "https://www.youtube.com/live/uG1YFbpLtSU"
+    },
+    {
+      año: 2026,
       dia: 27,
       mes: "MAR",
       tipo: "Ordinario",
       titulo: "Pleno de marzo 2026",
       acuerdos: [
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Subvenciones a entidades deportivas (PP, ULEG y VOX a favor; PSOE, Más Madrid y Podemos en contra)." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Subvención a Cáritas Diocesana para atención a personas en dificultad (PP y ULEG a favor; PSOE y VOX se abstuvieron)." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Protección de elementos arquitectónicos singulares de Leganés (PP, ULEG, PSOE y VOX a favor)." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Pasos de peatones inteligentes con luces LED en el suelo (PP, ULEG, PSOE y VOX a favor)." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Comunidades energéticas: impulso a la energía renovable compartida entre vecinos (PSOE, Más Madrid y Podemos a favor)." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Exigir al Ministerio de Transportes mejoras urgentes en la red de Cercanías de Madrid (PP, ULEG y VOX a favor)." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Extensión de Bicimad (bicicletas eléctricas compartidas) a Leganés (amplio consenso)." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Protección del despoblado medieval de Polvoranca (amplio consenso)." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Apertura de pistas deportivas de colegios fuera del horario escolar (unanimidad)." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Campaña municipal contra la violencia sexual hacia menores (amplio consenso)." },
-        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Menús halal en comedores escolares (solo VOX a favor; resto en contra)." },
-        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Convalidación de acto de Intervención municipal (PP y ULEG a favor; VOX se abstuvo; resto en contra)." }
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Acta de la sesión del 26 de febrero. (Unanimidad)" },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Convalidación de factura a Jotrinsa por 27.560 €. (PP y ULEG a favor; VOX se abstiene; PSOE, Más Madrid y Podemos en contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Modificación del presupuesto para subvenciones deportivas. (PP, ULEG y VOX a favor; PSOE, Más Madrid y Podemos se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Subvención nominativa a Cáritas Diocesana para atención social. (PP y ULEG a favor; PSOE y VOX se abstienen; Más Madrid y Podemos en contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Inscripción de asociaciones y entidades en el Registro Municipal. (PP, ULEG, PSOE, Más Madrid y Podemos a favor; VOX se abstiene)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de VOX: estudio de elementos arquitectónicos singulares de Leganés para protegerlos. (PP, ULEG, PSOE y VOX a favor; Más Madrid y Podemos se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de VOX: instalación de señalización luminosa LED en el suelo en pasos de peatones semaforizados. (PP, ULEG, PSOE y VOX a favor; Más Madrid y Podemos se abstienen)" },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Moción de VOX: comedores escolares con menús halal. (Solo VOX a favor; PP, ULEG, PSOE, Más Madrid y Podemos en contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Más Madrid: impulso a comunidades energéticas para energía renovable compartida. (PSOE, Más Madrid y Podemos a favor; PP, ULEG y VOX se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Más Madrid: rechazo al ataque de EEUU e Israel contra Irán. (PSOE, ULEG, Más Madrid y Podemos a favor; PP y VOX en contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Podemos: campaña de prevención de violencia sexual hacia menores. (PP, ULEG, PSOE, Más Madrid y Podemos a favor; VOX se abstiene)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE: reapertura de pistas deportivas de colegios fuera del horario escolar. (Unanimidad)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE: extensión del servicio de bicicletas Bicimad a Leganés. (PP, ULEG, PSOE, Más Madrid y Podemos a favor; VOX se abstiene)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE: protección del despoblado medieval de Polvoranca. (PP, ULEG, PSOE, Más Madrid y Podemos a favor; VOX se abstiene)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PP: medidas urgentes para mejorar la red de Cercanías de Madrid. (PP, ULEG y VOX a favor; PSOE, Más Madrid y Podemos en contra)" }
       ],
       linkActa: "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
       linkVideo: "https://www.youtube.com/live/duGzBOfm_BU"
@@ -153,8 +169,23 @@ const DATA = {
       tipo: "Ordinario",
       titulo: "Pleno de febrero 2026",
       acuerdos: [
-        { icono: "ℹ️", texto: "<strong>INFORMADO</strong> — Sesión ordinaria celebrada el 26 de febrero. El acta fue aprobada por unanimidad en el pleno de marzo." },
-        { icono: "ℹ️", texto: "<strong>INFORMADO</strong> — Sesión disponible en vídeo en el canal YouTube del Ayuntamiento (2 partes)." }
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Acta de la sesión del 15 de enero. (Unanimidad)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Compatibilidad laboral para actividad docente en la Universidad Nebrija. (PP y ULEG a favor; PSOE, Más Madrid, Podemos y VOX se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Compatibilidad laboral para profesor de la UAM. (PP y ULEG a favor; PSOE, Más Madrid, Podemos y VOX se abstienen)" },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Recurso de reposición de la empresa Cataliza. (PP y ULEG a favor; PSOE, Más Madrid y Podemos en contra; VOX se abstiene)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Plan especial para parcela RU manzana 2. (PP, ULEG y PSOE a favor; Más Madrid, Podemos y VOX se abstienen)" },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Moción de VOX: prohibición de ocultar el rostro en espacios públicos. (Solo VOX a favor; PSOE, Más Madrid y Podemos en contra; PP y ULEG se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de VOX: estudio de riesgos ferroviarios en Leganés. (VOX a favor; PP, ULEG, PSOE, Más Madrid y Podemos se abstienen)" },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Moción de VOX: regularización de migrantes. (Solo VOX a favor; PP, ULEG, PSOE, Más Madrid y Podemos se abstienen/contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Podemos: conmemoración del 8M - Día Internacional de la Mujer. (PSOE, ULEG, Más Madrid y Podemos a favor; VOX en contra; PP se abstiene)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Podemos: regularización de migrantes. (PSOE, Más Madrid y Podemos a favor; PP y VOX en contra; ULEG se abstiene)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de ULEG: apoyo al Club Voleibol Leganés Femenino y petición a la Federación de que reconsidere su sanción. (Unanimidad)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Más Madrid: salud mental. (PSOE, ULEG, Más Madrid y Podemos a favor; PP en contra; VOX se abstiene)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Más Madrid: vivienda para mujeres víctimas de violencia. (PSOE, ULEG, Más Madrid y Podemos a favor; VOX en contra; PP se abstiene)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE: revisión de calefacciones en edificios municipales. (PSOE, Más Madrid, Podemos y VOX a favor; PP y ULEG en contra)" },
+        { icono: "🔄", texto: "<strong>RETIRADA</strong> — Moción del PSOE sobre el 8M. (Retirada por el proponente)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE: instalación de mesas de petanca en parques. (PSOE, Más Madrid, Podemos y VOX a favor; PP y ULEG se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO (urgencia)</strong> — Moción del PSOE: reprobación del alcalde. (PSOE, Más Madrid y Podemos a favor; PP y ULEG en contra; VOX se abstiene)" }
       ],
       linkActa: "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
       linkVideo: "https://www.youtube.com/live/Rj59AItUrUs"
@@ -166,9 +197,9 @@ const DATA = {
       tipo: "Ordinario",
       titulo: "Pleno de enero 2026",
       acuerdos: [
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Tres mociones presentadas por el PSOE salieron adelante en este pleno." },
-        { icono: "ℹ️", texto: "<strong>CONTEXTO POLÍTICO</strong> — El PSOE criticó la «falta de proyecto y planificación» del Gobierno local (PP-ULEG). El Ayuntamiento funciona con el presupuesto prorrogado de 2025." },
-        { icono: "ℹ️", texto: "<strong>INFORMADO</strong> — Sesión disponible en vídeo en el canal YouTube del Ayuntamiento." }
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Tres mociones del PSOE sobre igualdad, vivienda y prevención de incendios salieron adelante." },
+        { icono: "ℹ️", texto: "<strong>CONTEXTO POLÍTICO</strong> — El PSOE criticó la «falta de proyecto y planificación» del Gobierno local (PP-ULEG). El Ayuntamiento funciona con presupuesto prorrogado de 2025." },
+        { icono: "ℹ️", texto: "<strong>INFORMADO</strong> — Sesión disponible en YouTube." }
       ],
       linkActa: "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
       linkVideo: "https://www.youtube.com/live/yQ3eSpeqZPQ"
@@ -182,15 +213,106 @@ const DATA = {
       tipo: "Ordinario",
       titulo: "Pleno de octubre 2025",
       acuerdos: [
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Plan de control de plagas y mejora de la limpieza urbana (PSOE, Más Madrid, Podemos y VOX a favor; PP y ULEG en contra)." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Programa de salud sexual para jóvenes (PSOE, ULEG, Más Madrid y Podemos a favor; VOX en contra; PP se abstuvo)." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Apertura de patios de colegios públicos fuera del horario lectivo para uso ciudadano (PSOE, Más Madrid y Podemos a favor; PP y ULEG se abstuvieron)." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Medidas de apoyo a mujeres víctimas de violencia de género (amplio respaldo; VOX en contra)." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Programa 'Libros a la calle': actividades culturales en espacios públicos (VOX, PSOE y PP a favor)." },
-        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Convalidación de factura de 311 € pendiente de pago (PSOE, Más Madrid, Podemos y VOX en contra; PP y ULEG a favor)." }
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Plan de control de plagas y mejora de la limpieza urbana. (PSOE, Más Madrid, Podemos y VOX a favor; PP y ULEG en contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Programa de salud sexual para jóvenes. (PSOE, ULEG, Más Madrid y Podemos a favor; VOX en contra; PP se abstiene)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Apertura de patios de colegios públicos fuera del horario lectivo. (PSOE, Más Madrid y Podemos a favor; PP y ULEG se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Medidas de apoyo a mujeres víctimas de violencia de género. (Amplio respaldo; VOX en contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Programa 'Libros a la calle': actividades culturales en espacios públicos. (VOX, PSOE y PP a favor)" },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Convalidación de factura de 311 € pendiente. (PSOE, Más Madrid, Podemos y VOX en contra; PP y ULEG a favor)" }
       ],
       linkActa: "https://www.leganes.org/actas-de-los-plenos",
       linkVideo: "https://www.youtube.com/results?search_query=pleno+leganes+octubre+2025"
+    },
+    {
+      año: 2025,
+      dia: 2,
+      mes: "JUL",
+      tipo: "Ordinario",
+      titulo: "Pleno debate Estado de la Ciudad 2025",
+      acuerdos: [
+        { icono: "✅", texto: "<strong>APROBADA</strong> — Propuesta de Podemos: plantación de 20.000 árboles en Leganés. (PSOE, Más Madrid y Podemos a favor; ULEG y VOX se abstienen; PP en contra)" },
+        { icono: "❌", texto: "<strong>RECHAZADA</strong> — Propuesta de Podemos: adquisición de 20 viviendas anuales para alquiler social. (PSOE, Más Madrid y Podemos a favor; ULEG se abstiene; PP y VOX en contra)" },
+        { icono: "❌", texto: "<strong>RECHAZADA</strong> — Propuesta de Podemos: creación de la Casa de la Mujer Leganense. (PSOE, Más Madrid y Podemos a favor; ULEG se abstiene; PP y VOX en contra)" },
+        { icono: "❌", texto: "<strong>RECHAZADA</strong> — Propuesta de VOX: reforma del Reglamento Orgánico Municipal. (PSOE y VOX a favor; Más Madrid y Podemos se abstienen; PP y ULEG en contra)" },
+        { icono: "❌", texto: "<strong>RECHAZADA</strong> — Propuesta de Más Madrid: solución a la vivienda (zona tensionada y observatorio). (Más Madrid y Podemos a favor; PSOE se abstiene; PP, ULEG y VOX en contra)" },
+        { icono: "✅", texto: "<strong>APROBADA</strong> — Propuesta de Más Madrid: transparencia y pluralidad en medios municipales. (PSOE, Más Madrid, Podemos y VOX a favor; PP y ULEG en contra)" },
+        { icono: "✅", texto: "<strong>APROBADA</strong> — Propuesta de Más Madrid: transición energética y gestión sostenible de residuos. (PSOE, Más Madrid y Podemos a favor; PP, ULEG y VOX se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADA</strong> — Propuesta de ULEG: Centro Base de Atención para personas con discapacidad. (PP, ULEG y VOX a favor; PSOE, Más Madrid y Podemos se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADA</strong> — Propuesta de ULEG: Oficina de la Tesorería de la Seguridad Social en Leganés. (PP, ULEG y VOX a favor; PSOE, Más Madrid y Podemos se abstienen)" },
+        { icono: "❌", texto: "<strong>RECHAZADA</strong> — Propuesta conjunta PP-ULEG: Plan Estratégico Municipal de Urbanismo. (PP y ULEG a favor; PSOE, Más Madrid, Podemos y VOX en contra)" },
+        { icono: "❌", texto: "<strong>RECHAZADA</strong> — Propuesta del PSOE: aparcamientos en cooperativas y reforma de zonas peatonales. (PSOE y VOX a favor; Más Madrid y Podemos se abstienen; PP y ULEG en contra)" },
+        { icono: "✅", texto: "<strong>APROBADA</strong> — Propuesta del PSOE: mejoras en transporte (línea 11, Metro, soterramiento M-406). (PSOE, Más Madrid, Podemos y VOX a favor; ULEG se abstiene; PP en contra)" },
+        { icono: "❌", texto: "<strong>RECHAZADA</strong> — Propuesta del PSOE: zona tensionada de vivienda y nuevo Plan General de Ordenación Urbana. (PSOE, Más Madrid y Podemos a favor; VOX se abstiene; PP y ULEG en contra)" },
+        { icono: "✅", texto: "<strong>APROBADA</strong> — Propuesta del PP: Programa de prevención de violencias y digitalización. (PP y ULEG a favor; PSOE, Más Madrid, Podemos y VOX se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADA</strong> — Propuesta del PP: Plan Integral de Apoyo a Familias y natalidad. (PP y ULEG a favor; VOX se abstiene; PSOE, Más Madrid y Podemos en contra)" }
+      ],
+      linkActa: "https://www.leganes.org/actas-de-los-plenos",
+      linkVideo: "https://www.youtube.com/results?search_query=pleno+debate+estado+ciudad+leganes+2025"
+    },
+    {
+      año: 2025,
+      dia: 10,
+      mes: "ABR",
+      tipo: "Ordinario",
+      titulo: "Pleno de abril 2025",
+      acuerdos: [
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Actas de sesiones extraordinarias de marzo (días 6, 7, 11 y 12). (PP, ULEG, Más Madrid y VOX a favor; Podemos se abstiene; PSOE en contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Declaración institucional contra el fraude, la corrupción y los conflictos de interés. (Unanimidad)" },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Convalidación de facturas de EMSULE por 56.903 €. (PP y ULEG a favor; PSOE, Más Madrid y Podemos en contra; VOX se abstiene)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Compatibilidad para actividad docente en la Universidad de Nebrija. (PP y ULEG a favor; resto se abstiene)" },
+        { icono: "🔄", texto: "<strong>SOBRE LA MESA</strong> — Compatibilidad de consultoría de ingeniería. (Aplazado a petición de PSOE, Más Madrid y Podemos)" },
+        { icono: "🔄", texto: "<strong>SOBRE LA MESA</strong> — Ejecución de sentencia sobre corrección del PGOU. (Aplazado a petición de PSOE, Más Madrid y Podemos)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Plan Municipal de Cooperación 2025-2029. (PP, ULEG, PSOE, Más Madrid y Podemos a favor; VOX en contra)" },
+        { icono: "❌", texto: "<strong>RECHAZADA</strong> — Moción de VOX sobre un libro controvertido en un colegio. (PP, ULEG, PSOE, Más Madrid y Podemos en contra; VOX a favor)" },
+        { icono: "✅", texto: "<strong>APROBADA</strong> — Moción de VOX: registro autonómico de ensayos clínicos. (VOX a favor; resto se abstiene)" },
+        { icono: "🔄", texto: "<strong>RETIRADA</strong> — Moción de VOX sobre igualdad en procesos selectivos. (Retirada por el proponente)" },
+        { icono: "❌", texto: "<strong>RECHAZADA</strong> — Proposición de Más Madrid sobre alquileres indefinidos. (Más Madrid y Podemos a favor; PSOE se abstiene; PP, ULEG y VOX en contra)" },
+        { icono: "✅", texto: "<strong>APROBADA</strong> — Moción de Más Madrid: creación de empresa municipal de servicios. (PSOE, Más Madrid y Podemos a favor; VOX se abstiene; PP y ULEG en contra)" },
+        { icono: "🔄", texto: "<strong>RETIRADA</strong> — Moción del PP sobre financiación autonómica. (Retirada por el proponente)" },
+        { icono: "✅", texto: "<strong>APROBADA</strong> — Moción del PSOE: apertura de pistas deportivas de colegios antes de junio. (Unanimidad)" },
+        { icono: "✅", texto: "<strong>APROBADA</strong> — Moción del PSOE: conmemoración del 50 aniversario de la democracia en España. (PSOE, Más Madrid y ULEG a favor; Podemos se abstiene; PP y VOX en contra)" },
+        { icono: "🔄", texto: "<strong>RETIRADA</strong> — Moción de Podemos sobre cumplimiento de propuestas. (Retirada por el proponente)" }
+      ],
+      linkActa: "https://www.leganes.org/actas-de-los-plenos",
+      linkVideo: "https://www.youtube.com/results?search_query=pleno+leganes+abril+2025"
+    },
+    {
+      año: 2025,
+      dia: 13,
+      mes: "MAR",
+      tipo: "Ordinario",
+      titulo: "Pleno de marzo 2025",
+      acuerdos: [
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Acta de la sesión del 13 de febrero. (Unanimidad)" },
+        { icono: "🔄", texto: "<strong>RETIRADA</strong> — Declaración institucional contra el fraude y la corrupción. (Retirada por el PSOE)" },
+        { icono: "🔄", texto: "<strong>RETIRADA</strong> — Ordenanza de tarjeta de estacionamiento para personas con discapacidad. (Retirada por la oposición para revisión)" },
+        { icono: "❌", texto: "<strong>RECHAZADAS</strong> — 8 propuestas del Gobierno para el pago de facturas pendientes (2015-2024). (PP y ULEG a favor; PSOE, Más Madrid y Podemos en contra; VOX se abstiene)" },
+        { icono: "✅", texto: "<strong>APROBADAS</strong> — Inscripción de asociaciones en el Registro Municipal. (PP, ULEG, PSOE, Más Madrid y Podemos a favor; VOX se abstiene)" },
+        { icono: "🔄", texto: "<strong>RETIRADAS</strong> — Tres mociones de VOX (ensayos clínicos, igualdad en selectivos, libro escolar). (Retiradas por el proponente)" },
+        { icono: "🔄", texto: "<strong>RETIRADAS</strong> — Mociones de la oposición (alquiler indefinido, cumplimiento de plenos, 50 años libertad, pistas abiertas). (Retiradas por los proponentes)" },
+        { icono: "ℹ️", texto: "<strong>CONTEXTO</strong> — Pleno exprés de apenas 30 minutos por la retirada masiva de propuestas." }
+      ],
+      linkActa: "https://www.leganes.org/actas-de-los-plenos",
+      linkVideo: "https://www.youtube.com/results?search_query=pleno+leganes+marzo+2025"
+    },
+    {
+      año: 2025,
+      dia: 13,
+      mes: "FEB",
+      tipo: "Ordinario",
+      titulo: "Pleno de febrero 2025",
+      acuerdos: [
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Actas de la sesión extraordinaria del 14 de enero y la ordinaria del 16 de enero. (Unanimidad)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de VOX: protocolo de transparencia en reuniones con terceros que tienen expedientes en el Ayuntamiento. (PSOE, Más Madrid y VOX a favor; Podemos se abstiene; PP y ULEG en contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de VOX: reunión con voluntarias cuidadoras de colonias felinas. (Unanimidad)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE: medidas para mejorar la calidad del aire. (PSOE, Más Madrid y Podemos a favor; PP y ULEG se abstienen; VOX en contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE: información veraz y plural en la comunicación municipal. (PSOE, Más Madrid, Podemos y VOX a favor; PP y ULEG en contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE: modificación de la ordenanza de protección animal. (Unanimidad)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Podemos: reconocimiento a Pepe Mujica como referente mundial. (PSOE, ULEG, Más Madrid, Podemos y VOX a favor; PP se abstiene)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Más Madrid: contratación urgente del servicio de ayuda a domicilio con garantías salariales. (PSOE, Más Madrid y Podemos a favor; PP, ULEG y VOX se abstienen)" }
+      ],
+      linkActa: "https://www.leganes.org/actas-de-los-plenos",
+      linkVideo: "https://www.youtube.com/results?search_query=pleno+leganes+febrero+2025"
     },
     {
       año: 2025,
@@ -199,12 +321,12 @@ const DATA = {
       tipo: "Ordinario",
       titulo: "Pleno de enero 2025",
       acuerdos: [
-        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Pago de facturas atrasadas solicitado por el Gobierno (PP-ULEG). La oposición votó en contra por dudas sobre el crédito disponible; VOX se abstuvo." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE sobre atención temprana infantil: se propuso crear un convenio con entidad privada para ampliar plazas." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE sobre transporte público: crítica a modificaciones de líneas de autobús (oposición a favor; Gobierno en contra)." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE para que la Comunidad de Madrid construya una residencia pública de mayores en Leganés." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de VOX sobre plan integral para las galerías comerciales. Aprobada por unanimidad." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Podemos sobre mejora de la calidad ambiental en Leganés." }
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Pago de facturas atrasadas solicitado por el Gobierno (PP-ULEG). (Oposición en contra; VOX se abstiene)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE: atención temprana infantil (convenio con entidad privada para ampliar plazas)." },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE: transporte público (crítica a modificaciones de líneas de autobús)." },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE: 6 parcelas a disposición de la Comunidad de Madrid para construir una residencia pública de mayores." },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de VOX: plan integral para las galerías comerciales. (Unanimidad)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Podemos: mejora de la calidad ambiental en Leganés." }
       ],
       linkActa: "https://www.leganes.org/actas-de-los-plenos",
       linkVideo: "https://www.youtube.com/results?search_query=pleno+leganes+enero+2025"
@@ -238,6 +360,81 @@ const DATA = {
     { icono: "🚗", label: "Impuesto de vehículos (IVTM)",              millon: 14.8, desc: "Lo que pagan los propietarios de coches, motos, etc." },
     { icono: "🏗️", label: "Licencias urbanísticas y otras tasas",      millon: 8.6,  desc: "Tasas por obras, apertura de negocios, etc." }
   ],
+
+  // ── SUBVENCIONES ──────────────────────────────────────────────
+  // Fuente: leganes.org/web/transparencia/convocatoria-anual-local-subvenciones
+  subvenciones: [
+    {
+        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Cultura",
+        "detalle": "Financiar proyectos culturales desarrollados por asociaciones locales sin ánimo de lucro",
+        "importe": null,
+        "beneficiarios": null,
+        "estado": "resuelta"
+    },
+    {
+        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Cultura UPL",
+        "detalle": "Financiar proyectos culturales en el marco del programa Cultura UPL",
+        "importe": null,
+        "beneficiarios": null,
+        "estado": "resuelta"
+    },
+    {
+        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Deportes",
+        "detalle": "Financiar proyectos y actividades deportivas desarrollados por asociaciones locales",
+        "importe": null,
+        "beneficiarios": null,
+        "estado": "resuelta"
+    },
+    {
+        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Discapacidad",
+        "detalle": "Financiar proyectos dirigidos a personas con discapacidad promovidos por asociaciones locales",
+        "importe": null,
+        "beneficiarios": null,
+        "estado": "resuelta"
+    },
+    {
+        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Empleo",
+        "detalle": "Financiar proyectos de fomento del empleo desarrollados por asociaciones locales",
+        "importe": null,
+        "beneficiarios": null,
+        "estado": "resuelta"
+    },
+    {
+        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Cooperación",
+        "detalle": "Financiar proyectos de cooperación y solidaridad promovidos por asociaciones locales",
+        "importe": null,
+        "beneficiarios": null,
+        "estado": "resuelta"
+    },
+    {
+        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Igualdad",
+        "detalle": "Financiar proyectos de promoción de la igualdad desarrollados por asociaciones locales",
+        "importe": null,
+        "beneficiarios": null,
+        "estado": "resuelta"
+    },
+    {
+        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Servicios Sociales",
+        "detalle": "Financiar proyectos de atención social promovidos por asociaciones locales",
+        "importe": null,
+        "beneficiarios": null,
+        "estado": "resuelta"
+    },
+    {
+        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Área Medio Ambiente y Sostenibilidad",
+        "detalle": "Financiar proyectos medioambientales y de sostenibilidad desarrollados por asociaciones locales",
+        "importe": null,
+        "beneficiarios": null,
+        "estado": "resuelta"
+    },
+    {
+        "nombre": "Entidades y asociaciones locales sin ánimo de lucro - Juntas Municipales de Distrito (La Fortuna y San Nicasio)",
+        "detalle": "Financiar proyectos vecinales y comunitarios en los distritos de La Fortuna y San Nicasio",
+        "importe": null,
+        "beneficiarios": null,
+        "estado": "resuelta"
+    }
+],
 
   // ── CONTRATOS ─────────────────────────────────────────────────
   // Fuente: leganes.org/web/transparencia/licitacion-e-informacion-de-obras-publicas
