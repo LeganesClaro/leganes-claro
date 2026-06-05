@@ -56,31 +56,99 @@ const DATA = {
 
   // ── PLENOS ──────────────────────────────────────────────────
   plenos: [
-    // ── 2026 ──
     {
-      año: 2026,
-      dia: 30,
-      mes: "MAY",
-      tipo: "Ordinario",
-      titulo: "Pleno de mayo 2026",
-      acuerdos: [
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Actas de sesiones anteriores (30 abr por unanimidad; 11 may con PP y ULEG a favor, oposición se abstiene)." },
-        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Suplemento de crédito para amortización de operaciones de deuda. (PP y ULEG a favor; PSOE, Más Madrid, Podemos y VOX en contra)" },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Aumento de subvenciones a 5 clubs deportivos: +988.601 € para Voleibol, Baloncesto, Fútbol Sala, Balonmano y ADIL. (PP, ULEG y VOX a favor)" },
-        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Crédito extraordinario para construcción de cubiertas en pistas deportivas. (PP y ULEG a favor; PSOE, Más Madrid, Podemos y VOX en contra)" },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Corrección del Inventario Municipal a 31 de diciembre de 2025. (PP y ULEG a favor; oposición se abstiene)" },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Condecoraciones y distinciones a agentes de la Policía Local por méritos en 2025. (PP, ULEG y VOX a favor; PSOE, Más Madrid y Podemos se abstienen)" },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Contestación a recurso de reposición municipal. (PP, ULEG y PSOE a favor; Más Madrid, Podemos y VOX se abstienen)" },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Inscripción de entidades y asociaciones ciudadanas en el Registro Municipal. (PP, ULEG, PSOE, Más Madrid y Podemos a favor; VOX se abstiene)" },
-        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Moción de ULEG para dar el nombre de 'Sonia Bermúdez' al campo de fútbol de El Carrascal. (PP y ULEG a favor; PSOE, Más Madrid, Podemos y VOX en contra)" },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Más Madrid por comedores escolares universales y gratuitos. (PSOE, Más Madrid y Podemos a favor; PP y VOX en contra; ULEG se abstiene)" },
-        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Moción de Más Madrid por vivienda pública en alquiler asequible. Empate: PP y ULEG en contra, PSOE, Más Madrid y Podemos a favor, VOX se abstiene. El alcalde desempata en contra." },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Más Madrid para que la Comunidad de Madrid construya una residencia de mayores de gestión pública en Leganés. (PSOE, Más Madrid y Podemos a favor; PP en contra; ULEG y VOX se abstienen)" },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE sobre políticas de bienestar animal. (PSOE, Más Madrid y Podemos a favor; PP, ULEG y VOX se abstienen)" },
-        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Moción del PSOE de apoyo al equipo ciclista Vinagres BTT Team Candil. (Solo PSOE a favor; PP y ULEG en contra; Más Madrid, Podemos y VOX se abstienen)" },
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE para la instalación de aseos públicos gratuitos y autolimpiables en Leganés. (PSOE, Más Madrid y Podemos a favor; PP, ULEG y VOX se abstienen)" },
-        { icono: "ℹ️", texto: "<strong>RETIRADAS</strong> — Dos mociones de VOX (regularización masiva y comisión de investigación de seguridad) fueron retiradas por el propio grupo antes de votarse." }
-      ],
+        "dia": 30,
+        "mes": "ABR",
+        "año": 2026,
+        "tipo": "Ordinario",
+        "titulo": "Pleno Ordinario de abril 2026",
+        "acuerdos": [
+            {
+                "icono": "✅",
+                "texto": "<strong>APROBADO</strong> — Se aprueba el acta de la sesión anterior (pleno ordinario del 26 de marzo de 2026). (Unanimidad de todos los asistentes)"
+            },
+            {
+                "icono": "✅",
+                "texto": "<strong>APROBADO</strong> — Se inscriben en el Registro Municipal de Asociaciones dos nuevas entidades: la Asociación LEGABAILA y el Club Deportivo Elemental Walking Fútbol Leganés. Esto les permite participar oficialmente en los órganos de participación ciudadana del municipio. (PP, PSOE, ULEG, Más Madrid y Podemos-IU-AV a favor; VOX se abstiene)"
+            },
+            {
+                "icono": "ℹ️",
+                "texto": "<strong>EN DEBATE</strong> — Moción presentada por Más Madrid Leganés para que el Ayuntamiento apoye a las trabajadoras de las escuelas infantiles en su huelga indefinida, reclamando mejores salarios, reducción de ratios y reconocimiento de su labor educativa en la etapa de 0 a 3 años. El texto del acta se interrumpe antes de recoger el resultado de la votación de este punto."
+            }
+        ],
+        "linkActa": "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
+        "linkVideo": "https://www.youtube.com/results?search_query=pleno+leganes+abr+2026"
+    },
+    {
+        "dia": 26,
+        "mes": "MAR",
+        "año": 2026,
+        "tipo": "Ordinario",
+        "titulo": "Pleno Ordinario de marzo 2026",
+        "acuerdos": [
+            {
+                "icono": "✅",
+                "texto": "<strong>APROBADO</strong> — Se aprueba el acta de la sesión ordinaria anterior, celebrada el 26 de febrero de 2026. (Unanimidad de todos los grupos)"
+            },
+            {
+                "icono": "❌",
+                "texto": "<strong>RECHAZADO</strong> — Se rechaza pagar una deuda de 27.560,39 € a la empresa Jotrinsa Talleres por suministro de piezas eléctricas y mecánicas para vehículos municipales. Esas facturas son de 2017 y 2018 y se tramitaron sin pasar el control obligatorio de la Intervención municipal (fiscalización previa), lo que hace el gasto irregular. El equipo de gobierno (PP y ULEG) votó a favor de pagarlo alegando que el servicio sí se prestó y era mejor pagar que enfrentarse a una indemnización mayor; la oposición de izquierdas lo rechazó; VOX se abstuvo. Al no alcanzar mayoría suficiente, la propuesta queda rechazada. (PP y ULEG a favor; PSOE, Más Madrid-Leganés y Podemos-IU-Alianza Verde en contra; VOX se abstiene)"
+            }
+        ],
+        "linkActa": "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
+        "linkVideo": "https://www.youtube.com/results?search_query=pleno+leganes+mar+2026"
+    },
+    {
+        "dia": 26,
+        "mes": "FEB",
+        "año": 2026,
+        "tipo": "Ordinario",
+        "titulo": "Pleno Ordinario de febrero 2026",
+        "acuerdos": [
+            {
+                "icono": "✅",
+                "texto": "<strong>APROBADO</strong> — Se aprueba el acta de la sesión ordinaria celebrada el 15 de enero de 2026. (Todos los grupos a favor, por unanimidad)"
+            },
+            {
+                "icono": "✅",
+                "texto": "<strong>APROBADO</strong> — Se autoriza a un agente de la Policía Local de Leganés a compaginar su trabajo en el Ayuntamiento con el de profesor asociado en la Universidad de Nebrija, en horario de tarde, desde el 26 de enero hasta el 17 de julio de 2026. Se ha comprobado que los horarios no se solapan y que el sueldo conjunto no supera los límites legales. (PP y ULEG a favor; PSOE, Más Madrid, Podemos-IU y VOX se abstienen)"
+            },
+            {
+                "icono": "✅",
+                "texto": "<strong>APROBADO</strong> — Se autoriza a un empleado municipal a compaginar su trabajo en el Ayuntamiento con el de profesor asociado en la Universidad Autónoma de Madrid. (PP y ULEG a favor; PSOE, Más Madrid, Podemos-IU y VOX se abstienen)"
+            }
+        ],
+        "linkActa": "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
+        "linkVideo": "https://www.youtube.com/results?search_query=pleno+leganes+feb+2026"
+    },
+    {
+        "dia": 15,
+        "mes": "ENE",
+        "año": 2026,
+        "tipo": "Ordinario",
+        "titulo": "Pleno Ordinario de enero 2026",
+        "acuerdos": [
+            {
+                "icono": "✅",
+                "texto": "<strong>APROBADO</strong> — Se aprueba el acta de la sesión ordinaria anterior, celebrada el 11 de diciembre de 2025. (Unanimidad de todos los grupos)"
+            },
+            {
+                "icono": "✅",
+                "texto": "<strong>APROBADO</strong> — Se cambia el día de los plenos ordinarios: a partir de febrero de 2026 se celebrarán el último jueves de cada mes (antes era el segundo jueves), a las 16:00 h, salvo agosto. El cambio se pide a petición de la concejal portavoz de VOX, Beatriz Tejero, que va a ser también diputada en la Asamblea de Madrid y los plenos de ambas instituciones coincidían en el calendario. (Unanimidad de todos los grupos)"
+            },
+            {
+                "icono": "✅",
+                "texto": "<strong>APROBADO</strong> — Moción de VOX para que el Ayuntamiento ponga en marcha un servicio de limpieza rápida de grafitis en paredes, muros y mobiliario urbano municipal, y que la Policía Local vigile y sancione a quienes hagan pintadas, además de lanzar campañas de concienciación ciudadana. VOX denunció que el problema lleva meses sin solución y que en toda la ciudad se ven pintadas sin limpiar durante semanas. (PSOE y VOX a favor; PP, ULEG, Más Madrid y Podemos-IU se abstienen)"
+            },
+            {
+                "icono": "ℹ️",
+                "texto": "<strong>INFORMADO / SIN RESULTADO REGISTRADO</strong> — Moción de Más Madrid Leganés para exigir a la Comunidad de Madrid que rectifique el proyecto de ampliación sur de la línea 11 de Metro, ya que según el estudio informativo publicado el 29 de diciembre de 2025 en el BOCM, la nueva estación del barrio de La Fortuna no conectaría con las estaciones de Metrosur de Leganés, lo que se considera perjudicial para la movilidad de los vecinos. (Resultado de votación no disponible en el texto proporcionado, el acta queda incompleta)"
+            }
+        ],
+        "linkActa": "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
+        "linkVideo": "https://www.youtube.com/results?search_query=pleno+leganes+ene+2026"
+    }
+],
       linkActa: "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
       linkVideo: "https://www.youtube.com/live/WN1lUcb6DKM"
     },

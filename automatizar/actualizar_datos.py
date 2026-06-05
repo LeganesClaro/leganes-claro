@@ -196,7 +196,7 @@ Devuelve SOLO JSON válido, sin texto antes ni después:
 }}
 
 TEXTO:
-{{texto}}
+{texto}
 """
 
 PROMPT_CONTRATOS = """\
@@ -422,6 +422,13 @@ def actualizar_plenos(client, estado: dict, forzar: bool) -> list[dict] | None:
                 nuevos_plenos.append(pleno)
                 marcar_procesado(estado, f"pleno_{id_art}")
                 print(f"  ✅ {pleno.get('titulo','Pleno')} — {len(pleno['acuerdos'])} puntos")
+            elif not texto.strip():
+                print(f"  [aviso] PDF sin texto extraíble (puede ser imagen escaneada)")
+            elif pleno is None:
+                print(f"  [aviso] Claude no devolvió JSON válido")
+                print(f"  [debug] Respuesta: {respuesta[:200]}")
+            else:
+                print(f"  [aviso] Pleno con pocos acuerdos ({len(pleno.get('acuerdos',[]))}): {pleno.get('titulo','?')}")
         except Exception as e:
             print(f"  [error Claude] {e}")
 
