@@ -115,19 +115,6 @@ const DATA = {
       dia: 30,
       mes: "ABR",
       tipo: "Ordinario",
-      titulo: "Pleno de abril 2026",
-      acuerdos: [
-        { icono: "ℹ️", texto: "<strong>INFORMADO</strong> — Los presupuestos 2026 (228 M€) fueron aprobados en Junta de Gobierno y se enviaron al Pleno para su debate. Incluyen seguridad, rehabilitación urbana y vivienda como prioridades." },
-        { icono: "ℹ️", texto: "<strong>INFORMADO</strong> — Sesión disponible en vídeo en el canal YouTube del Ayuntamiento (2 partes)." }
-      ],
-      linkActa: "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
-      linkVideo: "https://www.youtube.com/live/uG1YFbpLtSU"
-    },
-    {
-      año: 2026,
-      dia: 30,
-      mes: "ABR",
-      tipo: "Ordinario",
       titulo: "Pleno Ordinario de abril 2026",
       acuerdos: [
         { icono: "✅", texto: "<strong>APROBADO</strong> — Acta de la sesión ordinaria del 26 de marzo de 2026. (Unanimidad)" },
