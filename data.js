@@ -64,8 +64,22 @@ const DATA = {
       tipo: "Ordinario",
       titulo: "Pleno de mayo 2026",
       acuerdos: [
-        { icono: "✅", texto: "<strong>APROBADO</strong> — Aumento de subvenciones a 5 clubs deportivos: casi 1 millón de euros más para voleibol, baloncesto, fútbol sala, balonmano y ADIL. (PP, ULEG y VOX a favor)" },
-        { icono: "ℹ️", texto: "<strong>INFORMADO</strong> — 16 puntos debatidos en total: 11 aprobados y 5 rechazados (detalle completo en el acta oficial)." }
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Actas de sesiones anteriores (30 abr por unanimidad; 11 may con PP y ULEG a favor, oposición se abstiene)." },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Suplemento de crédito para amortización de operaciones de deuda. (PP y ULEG a favor; PSOE, Más Madrid, Podemos y VOX en contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Aumento de subvenciones a 5 clubs deportivos: +988.601 € para Voleibol, Baloncesto, Fútbol Sala, Balonmano y ADIL. (PP, ULEG y VOX a favor)" },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Crédito extraordinario para construcción de cubiertas en pistas deportivas. (PP y ULEG a favor; PSOE, Más Madrid, Podemos y VOX en contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Corrección del Inventario Municipal a 31 de diciembre de 2025. (PP y ULEG a favor; oposición se abstiene)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Condecoraciones y distinciones a agentes de la Policía Local por méritos en 2025. (PP, ULEG y VOX a favor; PSOE, Más Madrid y Podemos se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Contestación a recurso de reposición municipal. (PP, ULEG y PSOE a favor; Más Madrid, Podemos y VOX se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Inscripción de entidades y asociaciones ciudadanas en el Registro Municipal. (PP, ULEG, PSOE, Más Madrid y Podemos a favor; VOX se abstiene)" },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Moción de ULEG para dar el nombre de 'Sonia Bermúdez' al campo de fútbol de El Carrascal. (PP y ULEG a favor; PSOE, Más Madrid, Podemos y VOX en contra)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Más Madrid por comedores escolares universales y gratuitos. (PSOE, Más Madrid y Podemos a favor; PP y VOX en contra; ULEG se abstiene)" },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Moción de Más Madrid por vivienda pública en alquiler asequible. Empate: PP y ULEG en contra, PSOE, Más Madrid y Podemos a favor, VOX se abstiene. El alcalde desempata en contra." },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción de Más Madrid para que la Comunidad de Madrid construya una residencia de mayores de gestión pública en Leganés. (PSOE, Más Madrid y Podemos a favor; PP en contra; ULEG y VOX se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE sobre políticas de bienestar animal. (PSOE, Más Madrid y Podemos a favor; PP, ULEG y VOX se abstienen)" },
+        { icono: "❌", texto: "<strong>RECHAZADO</strong> — Moción del PSOE de apoyo al equipo ciclista Vinagres BTT Team Candil. (Solo PSOE a favor; PP y ULEG en contra; Más Madrid, Podemos y VOX se abstienen)" },
+        { icono: "✅", texto: "<strong>APROBADO</strong> — Moción del PSOE para la instalación de aseos públicos gratuitos y autolimpiables en Leganés. (PSOE, Más Madrid y Podemos a favor; PP, ULEG y VOX se abstienen)" },
+        { icono: "ℹ️", texto: "<strong>RETIRADAS</strong> — Dos mociones de VOX (regularización masiva y comisión de investigación de seguridad) fueron retiradas por el propio grupo antes de votarse." }
       ],
       linkActa: "https://sede.leganes.org/sta/CarpetaPublic/doEvent?APP_CODE=STA&PAGE_CODE=PTS2_PLENO",
       linkVideo: "https://www.youtube.com/live/WN1lUcb6DKM"
