@@ -272,28 +272,30 @@ def obtener_pdfs_sede_electronica() -> list[dict]:
             browser = p.chromium.launch(headless=True)
             page = browser.new_page()
             page.goto(SEDE_PLENOS, timeout=30000)
-            # Espera a que carguen los documentos dinámicos
             page.wait_for_timeout(4000)
 
-            # Busca todos los enlaces a PDFs de actas
-            for a in page.query_selector_all("a[href]"):
-                href = a.get_attribute("href") or ""
-                texto = a.inner_text().strip()
-                if ".pdf" in href.lower() or "acta" in texto.lower():
-                    url = href if href.startswith("http") else "https://sede.leganes.org" + href
-                    if url not in [e["url"] for e in enlaces]:
-                        enlaces.append({"url": url, "texto": texto or href.split("/")[-1]})
-
-            # Si no hay PDFs directos, busca secciones expandibles
-            if not enlaces:
-                page.click("text=Actas de Plenos", timeout=3000)
-                page.wait_for_timeout(2000)
-                for a in page.query_selector_all("a[href*='.pdf'], a[href*='acta']"):
+            def recoger_pdfs():
+                for a in page.query_selector_all("a[href]"):
                     href = a.get_attribute("href") or ""
                     texto = a.inner_text().strip()
-                    url = href if href.startswith("http") else "https://sede.leganes.org" + href
-                    if url not in [e["url"] for e in enlaces]:
-                        enlaces.append({"url": url, "texto": texto})
+                    if ".pdf" in href.lower():
+                        url = href if href.startswith("http") else "https://sede.leganes.org" + href
+                        if url not in [e["url"] for e in enlaces]:
+                            enlaces.append({"url": url, "texto": texto or href.split("/")[-1]})
+
+            recoger_pdfs()
+
+            # Intenta expandir secciones de actas (la sede carga contenido al hacer clic)
+            secciones = ["Actas de Plenos", "Actas", "Ver más", "2026", "2025", "2024"]
+            for seccion in secciones:
+                try:
+                    btn = page.locator(f"text={seccion}").first
+                    if btn.is_visible(timeout=1000):
+                        btn.click()
+                        page.wait_for_timeout(2000)
+                        recoger_pdfs()
+                except:
+                    pass
 
             browser.close()
     except Exception as e:
@@ -304,28 +306,35 @@ def obtener_pdfs_sede_electronica() -> list[dict]:
 
 # ── Fuentes de noticias de plenos ────────────────────────────
 
-FUENTES_PLENOS = [
-    "https://lavozdeleganes.com/seccion/politica/",
-    "https://www.teleganes.com/category/politica/plenos/",
-    "https://leganesactivo.com/tag/pleno-de-leganes/",
-]
-
-PALABRAS_PLENO = ["pleno", "plenos", "orden del día", "sesión ordinaria", "sesión extraordinaria"]
-
 def buscar_articulos_plenos() -> list[dict]:
-    """Busca artículos de plenos en medios locales."""
+    """
+    Busca actas y convocatorias de plenos en el portal oficial del Ayuntamiento.
+    Fuentes: leganes.org y sede.leganes.org únicamente.
+    """
     articulos = []
-    for url in FUENTES_PLENOS:
+    fuentes_oficiales = [
+        URLS["plenos"],                  # leganes.org/actas-de-los-plenos
+        URLS["plenos_sede"],             # sede.leganes.org
+        f"{PORTAL}/plenos-2026",
+        f"{PORTAL}/plenos-2025",
+        f"{PORTAL}/web/transparencia/transparencia-actas-plenos",
+        f"{PORTAL}/web/transparencia/transparencia-convocatorias-plenos",
+    ]
+    for url in fuentes_oficiales:
         soup = get_page(url)
         if not soup:
             continue
         for a in soup.find_all("a", href=True):
-            texto = a.get_text(strip=True).lower()
             href = a["href"]
-            if any(p in texto for p in PALABRAS_PLENO) and len(texto) > 20:
-                url_art = href if href.startswith("http") else "https://" + href.lstrip("/")
-                if url_art not in [x["url"] for x in articulos]:
-                    articulos.append({"url": url_art, "texto": a.get_text(strip=True)})
+            texto = a.get_text(strip=True)
+            # Solo PDFs o páginas del dominio oficial
+            if not ("leganes.org" in href or href.startswith("/")):
+                continue
+            if ".pdf" in href.lower() or any(k in texto.lower() for k in ["acta", "pleno", "orden del día"]):
+                url_art = href if href.startswith("http") else PORTAL + href
+                if url_art not in [x["url"] for x in articulos] and len(texto) > 5:
+                    es_pdf = ".pdf" in href.lower()
+                    articulos.append({"url": url_art, "texto": texto, "es_pdf": es_pdf})
     return articulos
 
 # ── Módulo: plenos ─────────────────────────────────────────────
